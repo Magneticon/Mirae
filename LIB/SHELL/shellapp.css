@@ -1,0 +1,2211 @@
+.RunMenuAreaTitle{
+	font-size: 2.5vh;
+	font-weight: bold;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 35%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.RunMenuAreaCommand{
+	width: 62%;
+	height: 30%;
+	left: 5%;
+	top: 45%;
+	position: absolute;
+	font-size: 2.75vh;
+}
+
+.RunMenuAreaSubmit{
+	width: 5%;
+	height: 20%;
+	left: 70%;
+	top: 45%;
+	position: absolute;
+}
+
+.WindowSeparator{
+	
+}
+
+.WindowCanvasArrea{
+/*	background-color: rgba(255,255,255,0.2) ; */
+	width: calc(100vw - 1.6vh);
+	height: 91.4vh;
+	left: 0vw;
+	top: 0vh;
+	position: fixed;
+	z-index: -5;
+	pointer-events:none;
+}
+
+.WindowSubCanvasArrea{
+	width: calc(100vw - 1.6vh);
+	height: 91.4vh;
+	left: 0vw;
+	top: 0vh;
+	position: fixed;
+	z-index: 9933000000000;
+	border: 0.8vh solid #000000;	
+	pointer-events:none;
+}
+
+/*		.sysmenu { float: left; height: 16px; margin-left: 6px; margin-top: 6px; width: 16px; }
+		.sysmenu .icon { display: block; }
+		.caption { float: left; margin-left: 6px; text-shadow: 0 0 2px white, 0 0 5px white, 0 0 9px white, 0 0 14px white, 0 0 20px white; }*/
+
+.WindowMain{
+	position: absolute;
+	width: calc(100% - 0.4vw);
+	height: calc(100% - 0.4vw);
+	border: 0.2vw solid #888888;
+	color: black;
+	cursor: default;
+	display: block;
+	font-family: "Segoe UI", sans-serif;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.WindowMain0{
+	position: absolute;
+	width: calc(100% - 0.4vw);
+	height: calc(100% - 0.4vw);
+	border: 0.2vw solid #888888;
+	background: repeating-linear-gradient(45deg, rgba(25,40,55,0.75) 35%, 
+				rgba(65,85,100,0.75) 40%, rgba(65,85,100,0.75) 42%, rgba(25,40,55,0.75) 50%,
+				rgba(25,40,55,0.75) 55%, rgba(70,85,100,0.75) 60%, rgba(70,85,100,0.75) 75%,
+				rgba(25,40,55,0.75) 90%);/*;BARVY SE MENI V RGBA VALUES (POSLEDNI JE PRUHLEDNOST, TO NECHAT -> V KOMENTARI AERO ORIGINAL)
+	background: repeating-linear-gradient(45deg, rgba(25,40,155,0.75) 35%, 
+				rgba(65,85,100,0.75) 40%, rgba(65,85,100,0.175) 42%, rgba(25,40,155,0.75) 50%,
+				rgba(25,40,155,0.75) 55%, rgba(70,85,100,0.175) 60%, rgba(70,85,100,0.75) 75%,
+				rgba(25,40,155,0.75) 90%);			*/	
+	background-attachment: fixed;
+	background-clip: padding-box;
+	border: 1px solid rgba(2,3,4,0.86);
+	border-radius: 6px;
+	box-shadow: inset 0 0 0 1px rgba(246,246,247,0.92), 0 3px 9px rgba(0,0,0,0.64);	
+}
+
+.WindowButton{
+	background-color: #999999;
+	color: #000000;
+	justify-content: center; 
+	align-items: center;
+	border: 0.2vw outset black;
+	padding: 2%;
+	display: flex;
+	min-width: 20%;
+	min-height: 5%;
+	margin-left: 2%;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.WindowButton:hover{
+	background-color: #333399;
+	color: #CCCCCC;
+}
+/*
+
+				<div class="sysmenu"><img src="icon.png" class="icon" /></div>
+				<div class="caption">Full window</div>
+
+*/
+		
+.WindowTextarea{
+	background-color:inherit; 
+	color: inherit; 
+	border: 2px inset #BBBBBB;
+}
+
+.WindowIframe{
+
+}
+
+.WindowInput{
+	background-color:inherit; 
+	color: inherit; 
+	border: 2px inset #BBBBBB;	
+}
+
+.WindowTitleBar{
+	position: relative;
+	width: 100%;
+	top: 0%;
+	left: 0%;
+/*	width: 99%;
+	top: 0.5%;
+	left: 1%; */	
+	/*height: calc(7% - 0.2vw);*/
+	height: 4vh;
+	overflow: hidden;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.WindowIconIn{
+/*	position: absolute;
+	top: 0.5vh;   */
+	height: 3vh;
+	width: 3vh;	
+/*	left: 1vh;
+	background-color: pink;  
+	margin-left: 1vh;  */
+	margin-top: 0.5vh;
+	position: relative;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitleInnerNew{
+/*	left: 5vh;
+	top: 0.5vh;
+	height: 3vh;  */
+	max-width: calc(100% - 5vh);
+	width: auto;
+/*	text-indent: 10%;  */
+	font-weight: bold;
+	font-size: 3vh; 
+	text-align: left !important;
+    overflow-x:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+/*	position: absolute;	  */
+	display: inline-block;
+	margin-left: 1vh;
+	line-height: 4vh;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.WindowTitleInner{
+	background-color: orange;
+/*	left: 5vh;  */
+	max-width: calc(100% - 6vh);
+	height: 4vh;
+	color: #6699FF;
+	font-weight: bold;
+	font-size: 3vh;	
+	text-align: left !important;
+    overflow-x:hidden; 
+    white-space:nowrap;
+    text-overflow: ellipsis;	
+	position: absolute;
+	display: inline-block;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitle{
+/*	position: absolute;  */
+	/* height: 106%;  */
+	height: 100%;
+/*	top: 2%; */
+	width: 35%;
+	min-width: 10vh;
+	position: absolute;
+	right: 19vh; 
+/*	justify-content: right; 
+	align-items: strech; 
+	display: flex; 	*/
+	cursor: move;	
+	display: inline-flex;
+	display: flex;
+	flex-direction: row-reverse;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitleButtonsNew{
+	display: flex; 
+	flex-direction: row-reverse; 
+	width: 18vh; 
+	height: 3.6vh; 
+	position: absolute; 
+	right: 0.2vh;
+	top: 0.2vh; 
+	border: none;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitleButtons{
+	position: absolute;
+	right: 0%;
+	height: 100%;
+	background-color: #000066;
+	width: 20%;
+	justify-content: center; 
+	align-items: center; 
+	display: flex;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitleMenus{
+	position: absolute;
+	left: 0%;
+	height: 100%;
+	background: none;
+	color: #000000;
+	width: auto;
+	min-width: 0vh;
+	max-width: calc(19vh+35%);
+	justify-content: left; 
+	align-items: center; 
+/*	display: flex; 	  */
+	display: inline-flex;	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowStatusBar{
+	width: calc(100% - 0.4vw);	
+	height: 3.5vh;
+	top: calc(100% - 3.6vh);
+	left: 0.2vh;
+	border: 0.02vw solid rgba(24,29,31,0.71);
+	visibility: visible;
+	font-size: 2vh;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.smallWindow{
+	z-index: 140 !important;
+	background-color: #999999 !important;
+	color: black !important;
+}
+
+.promptWindowInner{
+	background-color: #999999 !important;
+	color: black !important;
+}
+
+.promptWindow{
+	width: 40%;
+	height: 40%;
+	top: 30%;
+	left: 30%;
+	position: absolute;
+}
+
+break{
+  flex-basis: 100%;
+  width: 0px; 
+  height: 0px; 
+}
+
+.resizeDefElemClass{
+	width: 0.7vw; 
+	height: 0.7vw; 
+	background-color: #CCCCCC;
+	opacity: 0.4;
+	position: absolute; 
+	right: 0; 
+	bottom: 0; 
+	cursor: se-resize;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowData{
+	background-color: #555555;
+	color: black; 
+	overflow: auto; 
+	position: absolute;
+}
+
+.WinMenuDataArea{
+	background-color: #555555;
+	color: black; 
+	overflow: auto; 
+	position: absolute;
+	
+	width: 0px;
+	left: 0.2vw;
+	height: 0px;
+	top: 4vh;
+	
+	overflow: visible;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.WindowDataTitleBarStatusBar{
+	width: calc(100% - 0.4vw);
+	left: 0.2vw;
+	height: calc(100% - 7.5vh);
+	top: 4vh;
+}
+
+.WindowDataNoTitleBar{
+	width: calc(100% - 0.4vw);
+	left: 0.2vw;
+	height: calc(100% - 3.5vh - 0.2vw);
+	top: 0.2vw;
+}
+
+.WindowDataNoStatusBar{
+	width: calc(100% - 0.4vw);	 
+	left: 0.2vw;	
+	height: calc(100% - 4vh - 0.2vw);	
+	top: 4vh;	
+}
+
+.WindowDataNoTitleBarNoStatusBar{
+	width: calc(100% - 0.4vw);	 
+	left: 0.2vw;	
+	height: calc(100% - 0.4vw);	
+	top: 0.2vw;	
+}
+
+.WindowDataNoTitleBarNoStatusBarNoBorders{
+	width: 100%;	 
+	left: 0vw;
+	height: 100%;	
+	top: 0vw;
+}
+
+.setBlock{
+	display: block;
+	position: absolute;
+}
+
+.setCenterFlexC{
+	justify-content: center; 
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+}
+
+.setCenterFlexR{
+   flex-flow: row wrap;
+   align-content: flex-end;
+	justify-content: center; 
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+}
+
+.flexBreak{
+	width: 100%;
+}
+
+.setButtonsCont{
+	justify-content: left; 
+	align-items: center;
+	display: flex;	
+	position: absolute;
+	margin-top: 2%;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowMenuItem{
+	margin-left: 0%;
+	color: inherit;
+	white-space: nowrap;
+	display: flex;
+	cursor: pointer;
+	user-select: none;
+	font-size: 2vh;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTaskBarMenuItem{
+	margin-left: 2%;
+	color: inherit;
+	white-space: nowrap;
+	display: flex;
+	cursor: pointer;
+	user-select: none;
+	font-size: 2vh;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowTitleButton{
+	margin-left: 2%;
+	display: flex;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.NextArrow{
+	left: 90%;
+	color: inherit;
+	position: absolute;
+	text-align: right;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.StatusBarItem{
+	margin-left: 2%;
+	display: flex;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowMenuBox{
+	justify-content: center; 
+	z-index: 100;
+/*	padding: 0.5% 1.5% 0.5% 1.5%;  */
+/*	padding: 2% 10% 2% 5%; */
+	font-weight: normal;
+	border: 0.175vw outset black;
+	float: left;
+	display: block;
+	margin-left: 0%;
+	position: relative;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowMenuBoxSet{
+	display: block;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.main_prompt{
+	background-color: #000000;
+	color: #339900;
+	border: none;
+	width: 100%;
+	0height: 30vw;
+	height: 86vh;
+	font-size: 1.5vw;
+	word-wrap: break-word;
+	resize: none;
+	margin-top: 1vh;
+	padding-right: 50px;	
+	overflow: hidden;
+}
+
+.more_content{
+	height: 3.5vh;
+	width: 96vw;
+	0top: 1vh;
+	margin-top: 1vh;
+	position: absolute;
+	font-style: italic;
+	font-size: 3vh;
+	z-index: 10;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.content_container{
+	position: absolute;
+	word-wrap: break-word;
+	line-height: 4vh;
+	width: 98vw;
+	height: 0vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 50px;
+}
+
+.prompt_container{
+	top: 4.5vh;
+	position: relative;
+	width: 96vw;
+	0height: 40vw;
+	height: 95vh;
+	0overflow-y: visible;
+	overflow: hidden;
+	padding-right: 50px;
+}
+
+.main_area{
+	position: relative;
+	margin: 0% 2% 2% 2%;
+	width: 92vw;
+	height: 9vh;
+	top: 0%;
+	left: 0%;
+}
+
+.mainIAL{
+	position: relative;
+	width: 80vw;
+	height: 60vh;
+	border: 0.2vw solid #3366FF;
+	background-color: #660000;
+}
+
+.dataIAL{
+	position: absolute;
+	width: calc(80vw - 2vh);
+	height: 53vh;
+	top: 1vh;
+	left: 1vh;
+	/*background-color: #000000;
+	color: #339900;*/
+}
+
+.dataIALFrame{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0%;
+	left: 0%;	
+	border: none;
+}
+
+.dataLevelIALFrame{
+	position: absolute;
+	width: 75%;
+	height: 75%;
+	left: 12.5%;
+	top: 12.5%;
+	background-color: #990000;
+	color: #CC9900;
+	border: 1vh solid #000066;
+	box-shadow: 3vh 3vh 1vh #000000;
+	display: none;
+}
+
+.ialbutton{
+	width: 30%;
+	height: 60%;
+	border: 0.4vh inset #999999;
+	background-color: #CCCCCC;
+	color: #000000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.statIAL{
+	position: absolute;
+	width: calc(80vw - 3vh);
+	height: 4vh;
+	top: 55vh;
+	left: 1vh;
+	background-color: #000000;
+	color: #339900;
+}
+
+.mainIALMax{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 99.4vw;
+	height: calc(100vh - 0.4vw);
+	z-index: 1000;
+	border: 0.2vw solid #3366FF;
+	background-color: #660000;
+}
+
+.dataIALMax{
+	position: absolute;
+	width: calc(100vw - 3vh);
+	height: 93vh;
+	top: 1vh;
+	left: 1vh;
+}
+
+.dataIALFrameMax{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0%;
+	left: 0%;	
+	border: none;
+}
+
+.statIALMax{
+	position: absolute;
+	width: calc(100vw - 2vh);
+	height: 4vh;
+	top: 95vh;
+	left: 1vh;
+	background-color: #000000;
+	color: #339900;
+}
+
+.mainEdit{
+	position: relative;
+	width: 80vw;
+	height: 60vh;
+	border: 0.2vw solid #888888;
+}
+
+.mainEditBlank{
+	position: relative;
+	width: 80vw;
+	height: 60vh;
+}
+
+.mainEditData{
+	position: absolute;
+	width: 80vw;
+	height: 48.05vh;
+	top: 5.95vh;
+	background-color: #555555;
+	color: #FFFFFF;
+}
+
+.mainEditmenu{
+	width: 40vw;
+	0height: 5.7vh;
+	height: 5.95vh;
+	background-color: #111111;
+	color: #FFCC00;
+	justify-content: left; 
+	align-items: center; 
+	display: flex; 
+}
+
+.mainEditmenu>div:hover{
+	color: #669900;
+	cursor: pointer;
+}
+
+.mainEditmenuTitle{
+	width: 32vw;
+	0height: 5.7vh;
+	height: 5.95vh;
+	left: 50vw;
+	background-color: #222222;
+	color: #444444;
+	font-weight: bold;
+	font-size: 1.75vw;
+	justify-content: center; 
+	align-items: center; 
+	display: flex; 
+	cursor: default;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.mainEditmenuTitle:hover{
+	color: #CC6600;
+}
+
+.mainEditmenuEsc{
+	width: 8vw;
+	0height: 5.7vh;
+	height: 5.95vh;
+	left: 50vw;
+	background-color: #333333;
+	color: #000000;
+	justify-content: center; 
+	align-items: center; 
+	display: flex; 
+}
+
+.mainEditmenuEsc:hover{
+	color: #888888;
+	cursor: pointer;
+}
+
+.EditMenuBox > * {
+	white-space: nowrap !important;
+}
+
+.EditMenuBox{
+	background-color: #444444;
+	color: #000066;
+	justify-content: center; 
+	z-index: 100;
+	padding: 0.5% 1% 0.5% 1%;
+	border: 0.175vw outset black;
+	float: left;
+	display: none;
+	position: relative;
+}
+
+.EditMenuBox>div:hover{
+	background-color: #000066;
+	color: #444444;
+	cursor: pointer;
+}
+
+.EditMenuDialog{
+	background-color: #999999;
+	color: #000000;
+	z-index: 95;
+	margin: 5% 10% 5% 10%;
+	border: 0.35vw outset black;
+	height: 60%;
+	width: 80%;
+	display: none;
+	position: absolute;
+}
+
+.EditMenuDialogRibbon{
+	background-color: #333333;
+	color: #CCCCCC;
+	justify-content: center; 
+	align-items: center; 
+	z-index: 96;
+	width: 100%;
+	height: 10%;
+	display: flex;
+}
+
+.EditMenuDialogContainer{
+	background-color: #999999;
+	color: #000000;
+	justify-content: center; 
+	align-items: center; 
+	z-index: 96;
+	height: 90%;
+	display: flex;
+	overflow: auto;
+}
+
+.EditTextArea{
+	background-color: #000033;
+	color: #CCCCCC;
+	width: 79.8vw;
+	height: 48.05vh;
+	border: none;
+	resize: none;
+	position: absolute;
+	white-space: pre;
+	display: flex;
+}
+
+.EditTableArea{
+	background-color: #000000;
+	color: #CCCCCC;
+	height: 48.05vh;
+	width: 80vw;
+	resize: none;
+	position: absolute;
+	overflow: auto;
+	display: none;
+}
+
+.EditTableArea td {
+	width: 9.875vw;
+	height: 4.75vh;
+	vertical-align: middle;
+	text-align: center;
+	border: 0.2vw solid #000000;
+}
+
+.EditTableArea input {
+	height: 4.75vh;
+	width: 95%;
+	background-color: #000033;
+	color: inherit;
+	border: none;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.EditTableArea input:hover{
+	background-color: #669999 !important;
+	color: #000000 !important;
+	cursor: default;
+}
+
+.EditTableArea input:focus{
+	background-color: #DDDDDD !important;
+	color: #000000 !important;
+	cursor: default;	
+}
+
+.EditStatusBar{
+	width: 80vw;
+	height: 5vh;
+	top: 90%;
+	background-color: #222222;
+	color: #FFCC00;
+	border-top: 1vh double #888888;
+	position: absolute;
+	justify-content: left; 
+	align-items: center; 
+	visibility: visible;
+	cursor: default;
+}
+
+.EditButton{
+	background-color: #999999;
+	color: #000000;
+	justify-content: center; 
+	align-items: center;
+	border: 0.2vw outset black;
+	padding: 2%;
+	display: flex;
+}
+
+.EditButton:hover{
+	border: 0.2vw inset 999999;	
+	background-color: #000000;
+	color: #FFFFFF;	
+	cursor: pointer;
+}
+
+.EditInputAll{
+	background-color:inherit; 
+	color: inherit; 
+	border: 2px inset #BBBBBB;
+	width: 60vw;
+}
+
+.SystemArea{
+	width: 100%;
+	height: 100%;
+	background-color: green;
+	visibility: visible;
+	display: block;
+	opacity: 1;
+}
+
+.Desktop{
+	width: 100%;
+	height: 100%;
+}
+
+.ActiveDesktopTray{
+	width: calc(100% - 2*(0.25vh));
+	height: calc(7% - 2*(0.25vh));
+	left: 0%;
+	top: 93%;
+	border: 0.25vh inset #000000;
+	background-color: #993300;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayDesktopWins{
+/*	left: 21%;  */
+	left: 14%;
+	height: 150%;
+/*	width: 47%;   */
+	width: 74%;
+	position: absolute;
+	overflow-x: auto;
+	overflow-y: hidden;
+	display: inline-flex;
+/*	padding-bottom: 50%;*/
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.TrayDesktopWins:first-child{
+	margin-left: 0vw !important;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.maximizedWinDowData{
+    width: 100% !important;
+    left: 0% !important;
+}
+
+.maximizedWin{
+	border-radius: 0px !important;
+    border-style: none !important;
+    margin: 0px !important;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.maximizedWinTitleBar{
+	border-radius: 0px !important;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayIconWinIcon{
+	height: 2.5vh;
+	width: 2.5vh;
+	margin-left: 0.5vh;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayIconWinTitle{
+	margin-left: 2.5vh;
+	width: calc(100% - 6.5vh);
+	height: 2vw;
+	font-size: 1.75vw;
+	justify-content: left;
+	align-items: center;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowChoose{
+	background-color: #999999;
+	border: 0.5vh outset #555555;
+	width: 40vw;
+	height: 20vw;
+	left: 30vw;
+	top: calc((100% - 20vw)/2);
+	position: absolute;
+	z-index: 77000;
+	display: block;
+}
+
+.WindowChooseTitle{
+	background-color: #AAAAAA;
+	border: 0.5vh inset #000000;	
+	text-indent: 4%;
+	color: #000000;
+	width: 35vw;
+	height: 3vw;  
+	top: 14.5vw;
+	left: 2.5vw;
+	position: absolute;
+	font-size: 2.5vw;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowChooseIconContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: visible;	
+	width: 100%;
+	height: 10vw;
+	top: 2.5vw;
+	left: 0vw;
+	visibility: inherit;
+	position: absolute;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.WindowChooseIcon{
+	width: 10vw;
+	height: 10vw;
+	margin-left: 2.5vw;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.WindowChooseIcon:first-child{
+	margin-left: 0vw;
+}
+
+.TrayIconsMoveLeft{
+	left: 12%;
+/*	left: 19%; */
+	height: 100%;
+	width: 2%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 3vh;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.TrayIconsMoveLeft:hover{
+	background-color: #006633;
+	color: #FFFFFF;
+}
+
+.TrayIconsMoveRight{
+/*	left: 68%;   */
+	left: 88%;
+	height: 100%;
+	width: 2%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 3vh;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.TrayIconsMoveRight:hover{
+	background-color: #006633;
+	color: #FFFFFF;
+}
+
+.TrayIconWin{
+	top: 0.5vh;
+	height: calc(5.6vh);
+	width: 18%;
+	min-width: 18%;
+	max-width: 18%;
+	position: relative;	
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	float: left;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenu{
+	background-color: #FFFFFF;
+	border: 1vh outset #000000;
+	border-left: 0.5vh inset #000000;
+	color: #000000;
+	width: 30vw;
+	height: 70vh;
+	top: 10vh;
+	left: 28vw;
+	position: absolute;
+	z-index: 7000;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenu{
+	background-color: #FFFFFF;
+	border: 0.4vh outset #000000;
+	color: #000000;
+	width: 30vw;
+	height: 20vh;
+	top: 70vh;
+	left: 28vw;
+	position: absolute;
+	z-index: 7010;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenuTitleContainer{
+	background-color: #222222;
+	color: #888888;
+	display: block;
+	width: 100%;
+	height: 5vh;
+	top: 0vh;
+	left: 0vw;
+	position: absolute;
+	border-bottom: 0.4vh solid #888888;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuTitleContainer{
+	background-color: #222222;
+	color: #888888;
+	display: block;
+	width: 100%;
+	height: calc(10% - 0.4vh);
+	top: 0vh;
+	left: 0vw;
+	position: absolute;
+	border-bottom: 0.4vh solid #888888;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenuTitleIcon{
+	width: 2.5vh;
+	height: 2.5vh;
+	left: 1vh;
+	top: calc((100% - 2.5vh)/2);
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuTitleIcon{
+	width: 5vh;
+	height: 5vh;
+	left: 2vh;
+	top: calc((100% - 5vh)/2);
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenuTitleExitIcon{
+	background-color: #990000;
+	width: 5vh;
+	height: 3vh;
+	left: calc(100% - 5.5vh);
+	top: 0vh;
+	position: absolute;
+	border: 0.2vh outset #bbbbbb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2vh;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuTitleExitIcon{
+	background-color: #990000;
+	width: 5vh;
+	height: 3vh;
+	left: calc(100% - 5.5vh);
+	top: 0vh;
+	position: absolute;
+	border: 0.4vh outset #bbbbbb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2vh;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenuTitleExitIcon:hover{
+	background-color: #009999;
+	color: #000000;
+}
+
+.AppsMenuTitleExitIcon:hover{
+	background-color: #009999;
+	color: #000000;
+}
+
+.RunMenuTitle{
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	cursor: default;
+	width: calc(100% - 15vh);
+	height: 100%;
+	left: 6vh;
+	top: 0vw;
+	position: absolute;
+	font-size: 3vh;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuTitle{
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	cursor: default;
+	width: calc(100% - 15vh);
+	height: 100%;
+	left: 9vh;
+	top: 0vw;
+	position: absolute;
+	font-size: 4vh;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuArea{
+	background-color: #FFFFFF;
+	color: #000000;
+	width: 100%;
+	height: 90%;
+	left: 0vw;
+	top: 10%;
+	position: absolute;
+	overflow-x: hidden;
+	overflow-y: auto;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.RunMenuArea{
+	background-color: #FFFFFF;
+	color: #000000;
+	width: 100%;
+	height: 15vh;
+	left: 0vw;
+	top: 5vh;
+	position: absolute;
+	overflow-x: hidden;
+	overflow-y: auto;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.AppsMenuTitle:hover{
+	color: #FFFFFF;
+}
+
+.RunMenuTitle:hover{
+	color: #FFFFFF;
+}
+
+.TrayIconWin:hover{
+	filter: contrast(250%) brightness(75%) !important;
+/* background-color: #336633;
+	width: auto;  
+	min-width: 18%;
+	max-width: 50%;  */
+}
+.TrayIconWin:hover > .TrayIconWinTitle{
+	text-overflow: visible;
+/*	width: auto;	
+	padding-right: 1.5vh;  */
+}
+
+.DesktopTray{
+	width: 100%;
+	height: calc(7% - 0.10vh);	
+	left: 0%;
+	top: 93%;
+	z-index: 400000;
+	overflow: hidden;
+	display: inline-block;
+	align-items: center;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopTimer{
+/*	width: 32%;   */
+	width: 100%;
+	height: 100%;
+	top: 0%;
+/*	left: 68%;  */
+/*	position: absolute;  */
+	background-color: #000000;
+	color: #0033CC;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopTimerTime{
+	width: 100%;
+	height: 60%;
+	right: 0%;
+	position: absolute;
+	text-align: right;
+	font-size: 3.5vh;
+	display: flex;
+	justify-content: right;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopTimerDate{
+/*	width: 100%;  */
+	height: 35%;
+	top: 60%;
+	right: 0%;
+	position: absolute;
+	font-size: 2vh;
+	text-align: right;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopNotifyTray{
+	height: 90%;
+/*	width: 25%;
+	width: auto;
+	left: 93%;  */
+	right: 2vh;
+	top: 5%;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+/* disable tray additional icons, as this feature is not used in standalone application runtime version of DTS */
+
+.DesktopNotifyIcons{
+	width: 68%;
+	height: 80%;
+	top: 10%;
+	left: 0%;
+	position: absolute;
+	background-color: #000000;
+	color: #0033CC;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopNotifyIconsInner{
+	max-width: calc(100% - 8vh);
+	height: 2vw;
+	top: calc((100% - 2vw)/2);
+	right: 4vh;
+	position: absolute;
+	white-space: nowrap;
+	display: inline-flex;
+	padding-bottom: 50%;
+	overflow: auto;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopNotifyIconsInner:first-child{
+	margin-right: 0vw;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopNotifyIcon{
+	width: 2vw;
+	height: 2vw;
+	margin-right: 0.15vw;
+	cursor: pointer;
+	display: inline-table;
+	color: #FFFFFF;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopNotifyIcon:hover{
+	filter: sepia(100%);
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayNotifyIconsMoveLeft{
+	left: 0%;
+	top: calc((100% - 3vh)/2);
+	height: 3vh;
+	width: 3vh;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #3366CC;
+	cursor: pointer;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 2.5vh;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.TrayNotifyIconsMoveLeft:hover{
+	background-color: #336633;
+	color: #FFCC00;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayNotifyIconsMoveRight{
+	left: calc(100% - 3vh);
+	height: 3vh;
+	width: 3vh;
+	top: calc((100% - 3vh)/2);
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #3366CC;
+	cursor: pointer;	
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 2.5vh;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.TrayNotifyIconsMoveRight:hover{
+	background-color: #336633;
+	color: #FFCC00;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuMainIcon{
+	width: 10%;
+	min-width: 16vh;
+	height: 100%;
+	top: 0%;
+	left: 0%;
+	position: absolute;
+	cursor: pointer;
+	filter: brightness(125%);
+}
+
+.DesktopMenuMainIcon:hover{
+	filter: contrast(250%) brightness(75%) !important;
+}
+
+.DesktopMenuMainIconPic{
+	top: calc((100% - 4vh)/2);
+	left: 1vh;
+	height: 4vh;
+	width: 4vh;
+	position: absolute;
+}
+
+.DesktopMenuMainIconTitle{
+	top: calc((100% - 4vh)/2);
+	left: 5.5vh;
+	height: 4vh;
+	width: 10.5vh;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	font-size: 4vh;
+	justify-content: flex-end;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuArea{
+	width: 25%;
+	height: 60%;
+	bottom: 8%;
+	left: 0%;
+	position: absolute;
+	background-color: #111111;
+	border: 0.5vh outset #000000;
+	border-left: 0.5vh solid #000000;
+	box-shadow: 0.6vh 0.6vh 0.3vh #000000;	
+	z-index: 400000;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuAreaInnerArrea{
+	width: calc(100% - 3vw);
+	display: flex;
+	height: 100%;
+	flex-direction: column-reverse;
+	left: calc(3vw);
+	bottom: 0vh;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuAreaRibbon{
+	width: 3vw;
+	height: 100%;
+	text-align: center;
+	display: block;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuAreaRibbonText{
+	width: auto;
+	height: auto;
+	white-space: nowrap;
+	transform: rotate(270deg);
+	transform-origin: 0.2vw center;
+	font-size: 4vh;
+	top: 94%;
+	left: 5%;
+	position: absolute;
+	cursor: default;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuItems{
+	width: 100%;
+	height: 7vh;
+	margin-bottom: 0%;
+	position: relative;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuItemsTitle{
+	font-size: 3vh;
+	display: flex;
+	align-items: center;
+	width: auto;
+	height: 5vh;
+	position: absolute;
+	left: 7.5vh;
+	top: 1vh;
+	overflow: hidden;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopMenuItemsIcon{
+	color: inherit;
+	width: 5vh;
+	height: 5vh;
+	left: 1vh;
+	top: 1vh;
+	position: absolute;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.ActiveDesktopArrea{
+	background-color: white;
+	overflow: auto;	
+}
+
+.DesktopArrea{
+	width: 100%;
+	height: 93%;
+	left: 0%;
+	top: 0%;
+	position: absolute;
+}
+
+.DesktopIconContainer{
+	width: 18vh;
+	height: 18vh;
+/*	top: 0vh;
+	left: 0vh;*/
+	position: absolute;
+	font-size: 2vh;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.DesktopIconContainer:hover{
+	border: 0.02vh dashed #000000;
+	background-color: rgba(0,50,255,0.15);
+}
+
+.DesktopIconIcon{
+	width: 9vh;
+	height: 9vh;
+	left: 4.5vh;
+	top: 2vh;
+	position: absolute;
+}
+
+.DesktopIconTitle{
+	width: 16vh;
+	height: 4vh;
+	left: 1vh;
+	top: 12vh;
+	position: absolute;
+	text-align: center;
+	text-shadow: 3px 3px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px  1px 0 #000,1px  1px 0 #000;
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.SubDesktopArrea{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: red;
+}
+
+/* disable tray additional icons, as this feature is not used in standalone application runtime version of DTS */
+
+.TrayDesktopAction{
+	left: 16%;
+	top: 25%;
+	width: 2%;
+	height: 50%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	color: #CC6600;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.TrayDesktopStatus{
+	left: 12%;
+	top: 0%;
+	width: 3%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	color: #CC6600;
+	
+	display: none !important;
+	width: 0px !important;
+	height: 0px !important;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.CursorSubIcon{
+	top: 0px;
+	left: 0px;
+	width: 4vh;
+	height: 4vh;
+	position: absolute;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.StartupProgressCount{
+	width: 10%;
+	height: 100%;
+	position: absolute;
+	background-color: red;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.small_battery_container{
+	border: 0.14vh solid #333333;
+	width: 1.5vh;
+	height: 2.5vh;
+	padding: 0vh;
+	border-radius: 0.16vh;
+	position: relative;
+	margin-left: 1vh;
+	margin-top: 0.375vh;
+	background-color: #333333;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.small_battery_container::before {
+    content: '';
+    height: 15%;
+    width: 40%;
+    background: #333333;
+    display: block;
+    position: absolute;
+    top: -15%;
+    left: 30%;
+    border-radius: 0.175vh 0.175vh 0 0;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+} 
+.small_battery_container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -0.05vh;
+    left: -0.05vh;
+    right: -0.05vh;
+    bottom: -0.05vh;
+    border-radius: 0.2vh;
+    border: 0.1vh solid #fff;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.small_battery.charging{
+    display: flex;
+    justify-content: center;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.small_battery.charging::after{
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%3E%3C%2Fg%3E%20%3Cpath%20fill%3D%22%23e81309%22%20d%3D%22M17.927%2012l2.68-10.28c0.040-0.126%200.060-0.261%200.060-0.4%200-0.726-0.587-1.32-1.314-1.32-0.413%200-0.78%200.187-1.019%200.487l-13.38%2017.353c-0.18%200.227-0.287%200.513-0.287%200.827%200%200.733%200.6%201.333%201.333%201.333h8.073l-2.68%2010.28c-0.041%200.127-0.060%200.261-0.060%200.4%200.001%200.727%200.587%201.32%201.314%201.32%200.413%200%200.78-0.186%201.020-0.487l13.379-17.353c0.181-0.227%200.287-0.513%200.287-0.827%200-0.733-0.6-1.333-1.333-1.333h-8.073z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+	background-repeat: no-repeat;
+	/*background-size: 0.75vh;
+	height: 0.75vh;
+	width: 0.75vh;*/
+	background-size: 1.3vh;
+	height: 2vh;
+	width: 1.3vh;
+	background-color: none;
+	border: none;
+	/*margin-top: 95%;*/
+	top: calc(95% - 1.8vh);
+	mix-blend-mode: difference;
+	content: '';
+	display: inline-block;
+	position: relative;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.small_battery {
+	width: 100%;
+	height: 100%;
+	padding: 0vh;
+	position: relative;
+	background-color: #333333; 
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.battery_level_container{
+	background: inherit;  
+	position: absolute;
+	bottom: 2%;
+	left: 3%;
+	width: 94%;
+	height: 96%;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.battery-level.batt1{
+	background: #003300;
+}
+.battery-level.batt2{
+	background: #339900;
+}
+.battery-level.batt3{
+	background-color: #999900;
+}
+.battery-level.batt4{
+	background-color: #EFAF13;  
+}
+.battery-level.batt5{
+	background-color: #CC6600;
+}
+.battery-level.batt6{
+	background-color: #CC0000;
+}
+.battery-level.batt7{
+	background-color: #CCCCCC;
+}
+.battery-level {
+	right: 0;
+	bottom: 0px;
+	width: 100%;
+	position: absolute;
+}
+
+.notify_icon_signal_container {
+  width:4vh;
+  overflow: hidden;
+  height: 2.34vh;
+   display: flex;
+  justify-content: center;
+  mix-blend-mode: difference;
+  filter: invert(100%);
+  
+  user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;  
+}
+.notify_icon_signal {
+	padding: 0.34vh;
+ 	border: 0.34vh solid transparent;
+		border-radius: 16.68vh;
+/*	animation: left 2s linear infinite;*/
+
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.signal_play{
+  animation: signal_left 2s linear infinite;
+}
+
+.signal_noShow{
+ border-top: 0.34vh solid #444444; 
+}
+	
+.signal_one {width:4vh;
+			height:4vh;
+ 			animation-delay:1s;
+	}
+.signal_two {
+   border-top: 0.34vh solid #000000;
+animation-delay:.7s;}
+.signal_three {
+   border-top: 0.34vh solid #000000;
+animation-delay:.4s;}
+.signal_four {
+   border-top: 0.34vh solid #000000;
+  background-color: #000000;
+animation-delay:.1s;}
+
+@keyframes signal_left{
+	0% { border-top: 0.34vh solid rgba(0,0,0,0.1);}
+	100% {border-top: 0.34vh solid #000000;}
+}
+
+/*progressBars*/
+
+.systemLogoContainer{
+	width:15vh;
+	height:15vh;
+	background-color: black;
+	border: 0.2vh solid #555555; 
+	position: absolute;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.systemLogo{
+	left: 20%;
+	top: 100%;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+	position: absolute;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.LogoFrame3{
+	animation-iteration-count: 3;
+	animation-direction: alternate;
+}
+
+.LogoFrame1{
+	animation-iteration-count: 1;
+}
+
+.logoBlue{animation-delay: 0s;}
+.logoRed{animation-delay: 0s;}
+.logoGreen{animation-delay: 0s;}
+.logoYellow{animation-delay: 0s;}
+.systemLogoContainerStart{systemLogoContainer;animation-delay: 0s;}
+.logoBlueAfter{left: 44%;top: 44%;width: 46%;height: 46%;background-color: blue; border-radius: 0%;}
+.logoRedAfter{left: 10%;top: 44%;width: 30%;height: 46%;background-color: red; border-radius: 0%;}
+.logoGreenAfter{left: 10%;top: 10%;width: 46%;height: 30%;background-color: green; border-radius: 0%;}
+.logoYellowAfter{left: 60%;top: 10%;width: 30%;height: 30%;background-color: yellow; border-radius: 0%;}
+.systemLogoContainerAfter{background-color: black;border-radius: 0%;}
+
+@keyframes systemLogoContainer {
+    from {border: 0vh solid #000000; transform: rotate(0deg);border-radius: 100%;}
+    to {border: 0.5vh solid #555555; transform: rotate(360deg);border-radius: 0%;}
+}
+
+@keyframes logoBlue {
+    from {left: 10%;top: 10%;width: 0%;height: 0%;background-color: black; border-radius: 100%;}
+    to {left: 44%;top: 44%;width: 46%;height: 46%;background-color: blue; border-radius: 0%;}
+}
+@keyframes logoRed {
+    from {left: 90%;top: 10%;width: 0%;height: 0%;background-color: black; border-radius: 100%;}
+    to {left: 10%;top: 44%;width: 30%;height: 46%;background-color: red; border-radius: 0%;}
+}
+@keyframes logoGreen {
+    from {left: 90%;top: 90%;width: 0%;height: 0%;background-color: black; border-radius: 100%;}
+    to {left: 10%;top: 10%;width: 46%;height: 30%;background-color: green; border-radius: 0%;}
+}
+@keyframes logoYellow {
+    from {left: 10%;top: 90%;width: 0%;height: 0%;background-color: black; border-radius: 100%;}
+    to {left: 60%;top: 10%;width: 30%;height: 30%;background-color: yellow; border-radius: 0%;}
+}
+
+.logSubSub{
+	width: 14vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 0.4vh;
+	font-size: 2.5vh;
+    overflow:hidden; 
+    text-overflow: ellipsis;
+
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.DesktopArreaMaximized{
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.WinHand{
+	width: 15%;
+	position: absolute;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+
+.Show_Message_Window_New_App_Container_Screen{
+	color: #000000;
+	background-color: #888888;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.Show_Message_Window_New_App{
+	color: #FFFFFF;
+	background-color: #339999;
+	border: 0.5vh solid #FFFFFF;
+	opacity: 1;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.Show_Message_Window_New_App_Select{
+	color: #FFFFFF;
+	background-color: #339999;
+	border: 0.5vh solid #FFFFFF;
+	
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-ms-user-select: none;	
+}
+.Show_Message_Window_New_App_InnerElement{
+	color: #000000;
+	background-color: #BBAA99;
+	border: 0.5vh solid #FFFFFF;
+}

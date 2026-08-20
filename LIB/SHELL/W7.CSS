@@ -1,0 +1,273 @@
+.WindowMain:target { box-shadow: inset 0 0 0 1px rgba(246,246,247,0.92), 0 7px 19px rgba(0,0,0,0.9); z-index: 1; }
+.WindowMain:before, .WindowMain:after { content: ''; height: 160px; position: absolute; top: 0; width: 180px; z-index: -1; }
+.WindowMain:before { background-image: radial-gradient(200% 200% at bottom right, rgba(185,190,195,0) 50%, rgba(185,190,195,0.6) 75%); border-top-left-radius: 6px; left: 0; }
+.WindowMain:after { background-image: radial-gradient(200% 200% at bottom left, rgba(185,190,195,0) 50%, rgba(185,190,195,0.6) 75%); border-top-right-radius: 6px; right: 0; }
+
+.titlebar{}
+
+.titlebartext{
+	text-indent: 2vh;
+	width: calc(35%-2vh);
+}
+
+.titlebarcontrols{}
+
+.windowobj{
+	position: absolute;
+	width: calc(100% - 0.4vw);
+	height: calc(100% - 0.4vw);
+	border: 0.2vw solid #888888;
+	background: repeating-linear-gradient(45deg, rgba(25,40,55,0.75) 35%, 
+				rgba(65,85,100,0.75) 40%, rgba(65,85,100,0.75) 42%, rgba(25,40,55,0.75) 50%,
+				rgba(25,40,55,0.75) 55%, rgba(70,85,100,0.75) 60%, rgba(70,85,100,0.75) 75%,
+				rgba(25,40,55,0.75) 90%);
+	background-attachment: fixed;
+	background-clip: padding-box;
+	border: 1px solid rgba(2,3,4,0.86);
+	border-radius: 6px;
+	box-shadow: inset 0 0 0 1px rgba(246,246,247,0.92), 0 3px 9px rgba(0,0,0,0.64);		
+}
+
+.WindowTitleButtonsNew{display: flex; flex-direction: row-reverse; width: 18vh; height: 100%; border-radius: 0 0 5px 5px; box-shadow: inset 0 0 0 1px rgba(40,43,44,0.8), -1px 1px 0 rgba(223,233,234,0.84), 1px 1px 0 rgba(223,233,234,0.84); padding: 1px 0 0; position: absolute; right: 0.58vw; top: -1px; }
+.WindowTitleButtonsNew div {cursor: pointer; height: 100% !important; background-color: transparent; border: none; border-bottom-left-radius: 4px; -moz-box-sizing: border-box; box-sizing: border-box; float: left; font-weight: bold; margin: 0 1px 1px; padding: 0; position: relative; }
+.WindowTitleButtonsNew div:last-child { border-bottom-right-radius: 4px; }
+.WindowTitleButtonsNew div + div { border-bottom-left-radius: 0; margin-left: 0; }
+.WindowTitleButtonsNew div:before, .WindowTitleButtonsNew div:after { bottom: 20%; position: absolute; left: 50%;}
+.WindowTitleButtonMinimizeNew, .WindowTitleButtonMaximizeNew, .WindowTitleButtonRestoreNew { box-shadow: inset 0 0 0 1px rgba(212,216,221,0.8), 0 0 0 1px rgba(40,43,44,0.8); width: 25%;}
+.WindowTitleButtonCloseNew { box-shadow: inset 0 0 0 1px rgba(212,216,221,0.8), 0 0 0 1px rgba(28,32,23,0.8); width: 45%; display: flex; align-items: center;}
+.WindowMain:target .WindowTitleButtonMinimizeNew, .WindowMain:target .WindowTitleButtonMaximizeNew, .WindowMain:target .WindowTitleButtonRestoreNew { background: linear-gradient(rgba(221,223,226,0.80), rgba(188,191,184,0.74) 50%, rgba(119,124,127,0.64) 55%, rgba(165,163,176,0.7)); }
+.WindowMain:target .WindowTitleButtonCloseNew { background: linear-gradient(rgba(225,168,159,0.91), rgba(195,114,104,0.91) 50%, rgba(170,52,36,0.91) 55%, rgba(187,111,94,0.91)); }
+.WindowTitleButtonMinimizeNew:after { background: linear-gradient(#FFFFFF, #DDDDDD); border-radius: 1px; box-shadow: 0 0 0 1px #535666; content: ''; height: 10%; margin-left: -30%; width: 60%; }
+.WindowTitleButtonMaximizeNew:after, .WindowTitleButtonMaximizeNew:before { border-color: #FFFFFF #EEEEEE #DDDDDD; border-style: solid; border-width: 2px; border-radius: 1px; box-shadow: 0 0 0 1px #535666, inset 0 0 0 1px #535666; box-sizing: content-box; display: block; height: 30%; width: 5px; }
+.WindowTitleButtonRestoreNew:after, .WindowTitleButtonRestoreNew:before { border-color: #FFFFFF #EEEEEE #DDDDDD; border-style: solid; border-width: 2px; border-radius: 1px; box-shadow: 0 0 0 1px #535666, inset 0 0 0 1px #535666; box-sizing: content-box; display: block; height: 30%; width: 5px; }
+.WindowTitleButtonMaximizeNew:after, .WindowTitleButtonMaximizeNew:before { border-color: #FFFFFF #EEEEEE #DDDDDD; border-style: solid; border-width: 2px; border-radius: 1px; box-shadow: 0 0 0 1px #535666, inset 0 0 0 1px #535666; box-sizing: content-box; display: block; height: 30%; width: 5px; }
+.WindowTitleButtonRestoreNew:after, .WindowTitleButtonRestoreNew:before { border-color: #FFFFFF #EEEEEE #DDDDDD; border-style: solid; border-width: 2px; border-radius: 1px; box-shadow: 0 0 0 1px #535666, inset 0 0 0 1px #535666; box-sizing: content-box; display: block; height: 30%; width: 5px; }
+.WindowTitleButtonMaximizeNew:after { content: ''; margin-left: -5px; width: 6px; }
+.WindowTitleButtonRestoreNew:after { content: ''; margin-left: -5px; width: 6px; }
+.WindowTitleButtonCloseNew:after { color: #EEEEEE; content: 'X'; line-height: 90%; margin-left: -15%; text-shadow: 0 -1px #FFFFFF, -1px -2px #535666, 1px -2px #535666, -1px 1px #535666, 1px 1px #535666, -1px 0 #535666, -1px -1px #535666, 1px 0 #535666, 1px -1px #535666; }
+
+		/* Hover styles -- I didn't add :active styles */
+		.WindowTitleButtonMinimizeNew:hover, .WindowTitleButtonMaximizeNew:hover, .WindowTitleButtonRestoreNew:hover { background: radial-gradient(100% 75% at bottom center, rgba(11,254,251,1), rgba(11,254,251,0)), linear-gradient(rgba(221,223,226,0.80), rgba(188,191,184,0.74) 50%, rgba(119,124,127,0.64) 55%, rgba(165,163,176,0.7)); box-shadow: inset 0 0 0 1px rgba(212,216,221,0.8), 0 0 0 1px rgba(40,43,44,0.8), 0 0 10px 5px rgb(92,197,240); z-index: 2; }
+		.WindowTitleButtonCloseNew:hover {background: radial-gradient(100% 75% at bottom center, rgba(245,228,119,1), rgba(245,228,119,0) 50%), linear-gradient(rgba(230,152,140,0.91), rgba(214,109,93,0.91) 50%, rgba(166,32,13,0.91) 55%, rgba(194,82,39,0.91)); box-shadow: inset 0 0 0 1px rgba(212,216,221,0.8), 0 0 0 1px rgba(28,32,23,0.8), 0 0 10px 5px rgb(220,113,86); z-index: 2; }
+
+.WindowTitleButtonMinimize, .WindowTitleButtonMaximize{filter:invert(100%); background-color: #CC6600 !important; width: 25%; border: 0.1vw solid black;}
+.WindowTitleButtonClose{background-color: red !important; width: 45%;}
+.WindowTitleButtonMinimize:hover, .WindowTitleButtonMaximize:hover, .WindowTitleButtonClose:hover{filter: grayscale(100%) brightness(200%);}
+
+
+		/* Maximising is possible 
+		.WindowMain.maximised { border-radius: 0; bottom: 0; box-shadow: none; height: auto; left: 0 !important; right: 0; top: 0 !important; -webkit-transform: none; transform: none !important; width: auto; }
+		.WindowMain.maximised:before { border-top-left-radius: 0; }
+		.WindowMain.maximised:after { border-top-right-radius: 0; }
+		.WindowMain.maximised .client { left: 0; bottom: 0; right: 0; }*/
+		.WindowMain.WMainMax .WindowTitleButtonRestoreNew:after { margin-left: -20%; width: 15%;}
+		.WindowMain.WMainMax .WindowTitleButtonRestoreNew:before { bottom: 30%; content: ''; margin-left: -2%;}
+
+.WMainMax{}
+
+.WindowTitleInner:hover{
+	color: #FFFFFF;
+}
+.WindowTitleInnerNew:hover{
+	color: #3399CC;
+}
+
+.windowtitleobj{
+	color: #336699;
+	text-shadow: 0 0 2px white, 0 0 5px white, 0 0 9px white, 0 0 14px white, 0 0 20px white;
+}
+
+.titlemenus{
+	color: #AAAAAA;
+	font-size: 2vh;
+}
+
+.statusbar{
+	background-color: #CC9966;
+	opacity: 0.5;
+	color: #FFCC00;
+	justify-content: left; 
+	align-items: center;
+	display: flex;
+	border: 0.02vw solid rgba(24,29,31,0.71);
+	border-radius: 0.02vw;
+	box-shadow: 0 0 0 0.02vw rgba(207,210,214,0.71);
+	top: calc(100% - 3.6vh);
+	height: 2.8vh;
+	border-top: 0.5vh double #444444;
+}
+
+.WindowMenuItem:hover{
+/*	//background-color: darkblue !important;*/
+/*	background-color: #444444 !important;
+	color: #FFFFFF !important;*/
+	color: #FF6600 !important;
+}
+
+.WindowTitleButton:hover{
+	color: #CC3300;
+}
+
+.WindowTitle:hover{
+	color: white;
+}
+
+.inactiveobj{
+	
+}
+
+.activeobj{
+	
+}
+
+.titlebaractive {
+	filter: brightness(100%);
+}
+
+.titlebarinactive {
+	filter: brightness(50%);
+	background-color: #003399;
+	opacity: 0.7;
+}
+
+.titlemenusinactive{
+	background: none;
+	filter: brightness(50%);
+}
+
+.windowdatainactive{
+	
+}
+
+.windowdata{
+	background-color: #DDDDDD;
+}
+
+.statusbarinactive{
+	
+}
+
+.titlebarcontrolsinactive{
+	background: none;
+}
+
+.windowtitleobjinactive{
+	background: none;
+}
+
+.WindowIconIninactive{
+	background: none;
+}
+
+.titlebartextinactive{
+	background: none;
+}
+
+.TrayIconsMoveLeftCustom{
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+
+.TrayIconsMoveRightCustom{
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+
+.DesktopMenuMainIconCustom{
+	background-color: #006600;
+	border: 0.2vh outset #000000;
+	0border-top-right-radius: 2vh;
+	0border-bottom-right-radius: 2vh;
+}
+
+.DesktopMenuMainIconTitleCustom{
+	color: #FFFFFF;
+}
+
+.DesktopTrayCustom{
+	border-top: 0.25vh solid #AAAAAA;
+	background-color: #000000;
+}
+
+.TrayIconWinCustom{
+	border: 0.2vh outset #FFFFFF;
+	background-color: #0066FF;
+}
+
+.TrayIconWinCustom:hover{
+	background-color: #009933;	
+}
+
+.TrayIconWinTitleCustom{
+	color: #FFFFFF;
+}
+
+.DesktopTimerTimeCustom{
+	color: #FFFFFF;
+}
+
+.DesktopTimerDateCustom{
+	color: #FFFFFF;
+}
+
+.WindowMenuBoxCustom{
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.WindowTaskBarMenuItem:hover{
+	color: #444444;
+}
+
+.DesktopMenuAreaInnerArreaCustom{
+	background-color: #FFFFFF;
+}
+
+.DesktopMenuItemsCustom{
+	color: #000000;
+}
+
+.DesktopMenuItems:hover{
+	background-color: #000099;
+	color: #FFFFFF;
+}
+
+.DesktopMenuItemsTitleCustom{
+	color: inherit;
+}
+
+.DesktopMenuItemsIconCustom{
+	
+}
+
+.DesktopMenuAreaRibbonCustom{
+	background-color: #000000;
+	background: linear-gradient(#000000,#000033,#003366);	
+}
+
+.DesktopMenuAreaRibbonTextCustom{
+	color: #555555;
+}
+
+.DesktopMenuAreaRibbonText:hover{
+	color: #FFFFFF;
+}
+
+.WindowMenuItemCustom{
+	color: inherit;
+	background-color: #FFFFFF;
+	border-left: 1vh solid #FFFFFF;
+	border-right: 2vh solid #FFFFFF;
+	border-top: 0.35vh solid #FFFFFF;
+	border-bottom: 0.35vh solid #FFFFFF;
+}
+
+.WindowTaskBarMenuItemCustom{
+	color: #FFFFFF;
+	font-weight: bold;
+	filter: invert(20%);
+}
+
+.TrayIconWinMargin{
+	margin-left: 5px;	
+}

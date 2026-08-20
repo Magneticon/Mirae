@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+	<HEAD>
+		<META CHARSET="UTF-8">
+		<TITLE>MIRAE 1.00</TITLE>
+		<STYLE TYPE="TEXT/CSS">
+			BODY{
+				color: #FFFFFF;
+				background-color: #000000;
+				overflow: hidden;
+			}
+			#main_grid, #main_grid_a, #main_grid_b{
+				width: 100%;
+				height: 100%;
+				left: 0px;
+				top: 0px;
+				margin: 0px;
+				font-size: 14px;
+				overflow: hidden;
+				background-color: #000000;
+				position: fixed;
+				display: none;
+			}
+			#main_grid_a{
+				background-color: #000000;
+				color: #FFFFFF;
+			}
+			#main_grid_b{
+				color: #000000;
+				background-color: #888888;
+				
+				user-select: none;
+				-moz-user-select: -moz-none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+			#loader{
+				background-color: #000000;
+				color: #FFFFFF;
+				font-size: 14px;
+			}
+			.CampaignControls{
+				color: #FFFFFF;
+				background-color: #339999;
+				border: 2px solid #FFFFFF;
+				padding: 2px;
+				text-align: center;
+				
+				user-select: none;
+				-moz-user-select: -moz-none;
+				-webkit-user-select: none;
+				-ms-user-select: none;	
+			}
+			.CampaignContainer{
+				width: 92%;
+				height: 92%;
+				left: 4%;
+				top: 4%;
+				color: #FFFFFF;
+				background-color: #339999;
+				border: 3px solid #FFFFFF;
+				opacity: 1;
+				position: fixed;
+				overflow-y: auto;
+				overflow-x: hidden;
+				
+				user-select: none;
+				-moz-user-select: -moz-none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+			.campaignbuttonIE{
+				color: #FFFFFF;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.campaignbuttonIE:hover{
+				color: #003366;
+				text-decoration: underline;
+			}
+			.campaignbutton{
+			  background-color: #BBBBBB;
+			  color: #000000;
+			  padding: 4px 25px;
+			  border: 0.5vh outset #888888;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			}
+			.campaignbutton:hover{
+			  background-color: #888888;
+			  color: #FFFFFF;
+			  text-decoration: none;
+			  cursor: pointer;
+			}
+		</STYLE>
+		<SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="LIB/LDR.JS"></SCRIPT>
+		<SCRIPT TYPE="TEXT/JAVASCRIPT">
+			var CanLoadScripts = 2;
+			var IECAMPAIGN = false;
+			var FFCAMPAIGN = false;
+			var FFCAMPAIGNOLD = false;
+			//var FFVER = 50;
+			var FFVER = 48;
+			var minFFVER = 20;
+			var FFAGE = 4;
+			function ONLOAD(){
+				try{
+					if (navigator.userAgent.indexOf("Firefox") != -1){
+						FFCAMPAIGN = true;
+						if (/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)){
+							var ffversion = new Number(RegExp.$1);
+							if (ffversion >= FFVER && (parseInt(navigator.appVersion,10) > FFAGE || navigator.userAgent.indexOf("Firefox") >= FFVER))
+								CanLoadScripts = 1;
+							else if (ffversion < minFFVER){
+								CanLoadScripts = 0;
+								FFCAMPAIGNOLD = true;
+							}
+							else
+								CanLoadScripts = 0;
+						}
+						else
+							CanLoadScripts = 0;
+					}
+					else if (navigator.userAgent.indexOf("Firefox") != -1){
+						FFCAMPAIGN = true;
+						CanLoadScripts = 0;
+					}
+					else if ((navigator.appName == 'Microsoft Internet Explorer') || (navigator.userAgent.match(/Trident/)) || (navigator.userAgent.match(/rv:11/))){
+						IECAMPAIGN = true;
+						CanLoadScripts = 0;
+					}
+					else{
+			//			CanLoadScripts = 0;
+						CanLoadScripts = 1;
+                    }
+				}
+				catch(erd){
+					if (navigator.userAgent.indexOf("Firefox") != -1){
+						FFCAMPAIGN = true;
+						FFCAMPAIGNOLD = true;
+					}
+					else if ((navigator.appName == 'Microsoft Internet Explorer') || (navigator.userAgent.match(/Trident/)) || (navigator.userAgent.match(/rv:11/)))
+						IECAMPAIGN = true;
+					CanLoadScripts = 0;
+				}
+  //                  CanLoadScripts = 1;
+				INIT();
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY ONKEYDOWN="javascript:WorkPlatform('OnAlt',event);WorkPlatform('KeyDown',event);" ONBEFOREUNLOAD="javascript:WorkPlatform('Set_Ok',event);" ONLOAD="javascript:ONLOAD();" onmousemove="javascript:HandleInteractUI(event,'MouseClientDetect');" onmousedown="javascript:HandleInteractUI(event,'MouseClientDetect');" onmouseup="javascript:HandleInteractUI(event,'MouseClientDetect');">
+	
+	<!-- onerror="javascript:HandleInteractUI(event,'writeError');return false;"  -->
+		<DIV ID="main_styles"></DIV>
+		<DIV ID="main_scripts"></DIV>
+		<audio id="ComSnd">
+			<source src="" type="audio/mp3">
+		</audio>
+		<DIV ID="HID" STYLE="visibility: hidden; opacity: 0; position: relative; width: 1px; height: 1px;"></DIV>
+		<DIV ID="END" STYLE="color: white;"></DIV>
+		<DIV ID="loader"><DIV ID="load_log"></DIV></DIV>
+		<DIV ID="system">
+			<DIV ID="main_grid_a"></DIV>
+			<DIV ID="main_grid_b"></DIV>
+			<DIV ID="main_grid"></DIV>
+		</DIV>
+		<SPAN ID="AutoComplete" CLASS="autocomplete"><SPAN ID="AutoCompleteFrom"></SPAN><SPAN ID="AutoCompleteTo" ></SPAN></SPAN>
+		<SCRIPT TYPE="TEXT/JAVASCRIPT">
+			var LoadedApp = false;
+			var log = "";
+			function WorkPlatform(f,e){
+				if (!LoadedApp)
+					return undefined;
+				switch(f){
+					case "OnAlt":
+						OnAlt(e);
+						break;
+					case "KeyDown":
+						KeyDown(e);
+						break;
+					case "Set_Ok":
+						Set_Ok();
+						break;
+					default:
+						break;
+				}
+			}
+			function GtE(id){
+				return document.getElementById(id);
+			}
+
+			function GtEs(id){
+				return document.getElementById(id).style;
+			}
+	
+			function INIT(){
+				var timerMainLoad = window.setInterval(function(){
+					if (CanLoadScripts == 1)
+						StartLoad();
+					if (CanLoadScripts == 0)
+						EndLoad();
+					if (CanLoadScripts < 2)
+						window.clearInterval(timerMainLoad);
+				},200);
+			}
+				
+			function EndLoad(){
+				log = ">> Bad browser version;";
+				GtE("load_log").innerHTML = ">> Bad browser type or version<br><br>";
+				if (IECAMPAIGN){
+					log = "MSIE detected;";
+					GtE("load_log").innerHTML += "MSIE detected<br><br>";
+				}
+				else if ((FFCAMPAIGN) && (FFCAMPAIGNOLD)){
+					log = "Low version of Mozilla Firefox was detected -> set MSIE mode";
+					GtE("load_log").innerHTML += "Low version of Mozilla Firefox was detected -> set MSIE mode<br><br>";
+				}
+				else if (FFCAMPAIGN){
+					log = "Low version of Mozilla Firefox was detected";
+					GtE("load_log").innerHTML += "Low version of Mozilla Firefox was detected<br><br>";
+				}
+				else{
+					log = "No MSIE detected;";
+					GtE("load_log").innerHTML += "No MSIE detected<br><br>";
+				}
+				log += ">> Stop loading libraries ...;";
+				GtE("load_log").innerHTML += ">> Stop loading libraries ...<br><br>";
+				log += ">> Loading campaign ...;<br><br>";
+				GtE("load_log").innerHTML += "&nbsp &nbsp //> Loading campaign ...<br><br>";
+				var wait = window.setTimeout(function(){Campaign();},1500);
+			}
+			
+			var CampaignLang = "EN";
+			var campaignbutton = "campaignbutton";
+			function Campaign(){
+				document.getElementById("loader").style.display = "none";
+				document.getElementById("main_grid_b").style.zIndex = 940000;
+				document.getElementById("main_grid_b").style.display = "block";
+				document.getElementById("main_grid_b").innerHTML = "<div id='campaigncontainer' class='CampaignContainer'></div>";
+				if ((IECAMPAIGN) || (FFCAMPAIGNOLD)){
+					campaignbutton = "campaignbuttonIE";
+					document.getElementById("campaigncontainer").innerHTML = "<div id='controls' style='font-size: 24px; margin-left: 75%; margin-top: 2%; width: 20%; position: relative; border: none;' class='CampaignControls'></div>";
+					document.getElementById("controls").innerHTML = "&nbsp;<a id='setCz' href='javascript:setCzCampaign();' class='campaignbuttonIE'>Česky</a>&nbsp;|&nbsp;<a id='setEng' href='javascript:setEngCampaign();' class='campaignbuttonIE'>English</a>&nbsp;";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='heading' style='margin-top: 1%; text-align: center; font-size: 44px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='title' style='margin-left: 5%; width: 90%; margin-top: 3%; text-align: left; font-size: 28px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxHeading' style='font-weight: bold; margin-left: 5%; width: 90%; margin-top: 3%; text-align: left; font-size: 38px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxTitle' style='margin-left: 5%; width: 90%; margin-top: 2%; text-align: left; font-size: 28px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxDownload' src='' style='margin-left: 5%; width: 90%; margin-top: 3%; font-size: 32px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='nofox' style='margin-top: 0.5%; margin-left: 5%; width: 30%; text-align: left; font-size: 24px;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<img id='FirefoxDownloadLogo' src='LIB/SHELL/mozillafirefoxlogo.png' style='cursor: pointer; height: 140px; width: 320px; top: 0%; left: 67%; position: relative;' onclick='javascript:MoveBrowserToCampaign();'></div></div>";
+				}
+				else{
+					document.getElementById("campaigncontainer").innerHTML = "<div id='controls' style='font-size: 2.5vh; right: 2vh; top: 2vh; position: absolute; text-align: center; display: flex; justify-content: space-around; align-items: center; padding: 1vh;' class='CampaignControls'><div>";
+					document.getElementById("controls").innerHTML = "&nbsp;<a id='setCz' href='javascript:setCzCampaign();' class='campaignbutton'>Česky</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id='setEng' href='javascript:setEngCampaign();' class='campaignbutton'>English</a>&nbsp;";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='heading' style='margin-top: 12vh; text-align: center; font-size: 6vh'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='title' style='margin-left: 5vw; width: 82vw; margin-top: 10vh; text-align: left; font-size: 3vh;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxHeading' style='font-weight: bold; margin-left: 5vw; width: 82vw; margin-top: 10vh; text-align: left; font-size: 4vh'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxTitle' style='margin-left: 5vw; width: 82vw; margin-top: 5vh; text-align: left; font-size: 3vh'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='FirefoxDownload' src='' style='margin-left: 5vw; width: 82vw; margin-top: 5vh; font-size: 4vh'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<div id='nofox' style='margin-top: 1%; margin-left: 5vw; width: 30%; text-align: left; font-size: 2.5vh;'></div>";
+					document.getElementById("campaigncontainer").innerHTML += "<img id='FirefoxDownloadLogo' src='LIB/SHELL/mozillafirefoxlogo.png' style='cursor: pointer; margin-right: 5vw; height: 12vh; width: 32vh; top: 76vh; right: 2vh; position: absolute;' onclick='javascript:MoveBrowserToCampaign();'></div>";
+				}
+				if (CampaignLang == "CZ")
+					setCzCampaign();
+				else
+					setEngCampaign();
+			}
+			
+			function setEngCampaign(){
+				document.getElementById("heading").innerHTML = "Mirae - your best choice to do things!";
+				document.getElementById("title").innerHTML = "We are sorry, but this application is not available for your web browser. If you want to start this application, you have to use the Mozilla Firefox browser in 50th version or higher. We apologize for the complications.";
+				if (FFCAMPAIGN){
+					document.getElementById("FirefoxHeading").innerHTML = "Outdated Mozilla Firefox?";
+					document.getElementById("FirefoxTitle").innerHTML = "This application needs the latest technologies such as HTML 5 and ECMA Script version 6, which are supported by the latest Mozilla Firefox. And, new Mozilla Firefox is more faster and secure than older versions of Firefox!<br><br>Try these new technologies used in this application and try the latest Mozilla Firefox!";
+					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadENG' href='https://www.mozilla.org/en-US/firefox/new/' target='_blank' class='"+campaignbutton+"'>Download the latest Mozilla Firefox release!</a>";
+				}
+				else{
+					document.getElementById("FirefoxHeading").innerHTML = "Why Mozilla Firefox?";
+					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox is one of the best browsers which supports the latest technologies such as HTML 5 and ECMAScript in 6th version. Support for these technologies and a large number of users who are using Mozilla Firefox were deciding factors for building this application directly for this browser. <br><br> Try these new technologies used in this application and try Mozilla Firefox!";
+					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadENG' href='https://www.mozilla.org/en-US/firefox/new/' target='_blank' class='"+campaignbutton+"'>Download the latest Mozilla Firefox release!</a>";
+				}
+				document.getElementById("nofox").innerHTML = "<div id='NoFoxENG' onclick='javascript: OverrideCampaign();' class='campaignbuttonIE'>Continue with current browser ...</div>";
+				document.title = "Mirae";
+				CampaignLang = "ENG";
+			}
+			function setCzCampaign(){
+				document.getElementById("heading").innerHTML = "Mirae - vaše nejlepší volba pro vaši produktivitu!";
+				document.getElementById("title").innerHTML = "Omlouváme se, ale tato aplikace nelze spustit ve vašem prohlížeči. Pro spuštění této aplikace musíte použít prohlížeč Mozilla Firefox v minimální verzi 50. Omlouváme se za komplikace.";
+				if (FFCAMPAIGN){
+					document.getElementById("FirefoxHeading").innerHTML = "Zastaralý Mozilla Firefox?";
+					document.getElementById("FirefoxTitle").innerHTML = "Tato aplikace využívá ke svému chodu nejnovější technologie jako například HTML 5 nebo ECMAScript 6, které jsou podporovány nejnovějším Mozilla Firefox. A také, nový Mozilla Firefox je rychlejší a bezpečnější!<br><br>Vyzkoušejte tyto nové technologie použité v této aplikaci a zkuste nejnovější Mozilla Firefox!";
+					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadCZ' href='https://www.mozilla.org/cs/firefox/new/' target='_blank' class='"+campaignbutton+"'>Stáhnout nejnovější Mozilla Firefox!</a>";
+				}
+				else{
+					document.getElementById("FirefoxHeading").innerHTML = "Proč Mozilla Firefox?";
+					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox patří mezi prohlížeče s nejlepší podporou nejnovějších technologií jako např. HTML 5 nebo ECMAScript 6. Podpora těchto technologií a velký počet uživatelů používající tento prohlížeč byly rozhodujícími důvody pro sestavení této aplikace přímo pro tento prohlížeč. <br><br>Vyzkoušejte tyto nové technologie použité v této aplikaci a zkuste Mozilla Firefox!";
+					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadCZ' href='https://www.mozilla.org/cs/firefox/new/' target='_blank' class='"+campaignbutton+"'>Stáhnout nejnovější Mozilla Firefox!</a>";
+				}
+				document.getElementById("nofox").innerHTML = "<div id='NoFoxCZ' onclick='javascript: OverrideCampaign();' class='campaignbuttonIE'>Pokračovat se současným prohlížečem ...</div>";
+				document.title = "Mirae";
+				CampaignLang = "EN";
+			}
+			function MoveBrowserToCampaign(){
+				switch(CampaignLang){
+					case "CZ":
+						window.open('https://www.mozilla.org/cs/firefox/new/','_blank');
+						break;
+					default:
+						window.open('https://www.mozilla.org/en-US/firefox/new/','_blank');
+						break;
+				}
+			}
+			function OverrideCampaign(){
+				document.getElementById("loader").style.display = "block";
+				document.getElementById("main_grid_b").style.display = "none";
+				document.getElementById("main_grid_b").innerHTML = "";
+				CanLoadScripts = 1;
+				INIT();
+			}
+
+			function WriteToLog(data){
+				var date = new Date();
+				log += " //- "+date+" - : "+data+";";
+                if (!_NoOutputDuringStartup)
+                    GtE("load_log").innerHTML += " //- "+date+" - : "+data+";<br>";	
+			}
+
+			function StartLoad(){
+				log = ">> Browser version ok;";
+				log += ">> Start loading libraries ...;";
+				LoadedApp = false;
+                var DefaultsAreLoaded = false;
+				//alternative location from where to load scripts edit in LDR.js/MainDomain variable
+				//note: it will take longer to load files if the exact relative path is not found
+                ImportTo("script", false,2400,false,new Array(
+                    "defaults.js", //initialization of your custom settings
+                ),function(){
+                    ImportTo("style",false,2400,false,new Array(
+                        "LIB/SHELL/shell.css", //GUISHELL CSS support
+                        "LIB/SHELL/shellapp.css", //your own applicaiton styling
+                    ),function(){
+                        ImportTo("script",false,2400,false,new Array(
+                            "LIB/lang.js","LIB/LILANG.js", //language and license language versions
+                            "LIB/START.js", //initialization of system settings
+                            "LIB/STOR.js", //storage supprot (local storage, cookies and more...)
+                            "LIB/WKS.js", //WKS framework
+                            "LIB/WSADD.js", //WKS framework addon
+                            "LIB/MOV.js", //MOV library for enabling of reposition of GUI elements
+                            "LIB/MEDIA.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/SHELL.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/kernel.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/GUI.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/GFRAME.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/LANWORK.js", //initialization of translation feature
+                            "LIB/shellwork.js", //GUI definition of your application
+                            "LIB/work.js" //your application code (methods) used & called in your GUI definiton
+                            ),function(){
+                                ImportTo("style",false,2400,false,new Array(
+                                    "LIB/SHELL/"+((_GUIShell != "") ? _GUIShell : "XP")+".css"//set shell for the GUI
+                                ),function(){
+                                    StartLoadApp();
+                            },function(){
+                                WriteToLog("style "+SYSKERNscriptName+" was loaded");
+                            });
+                        },function(){
+                            WriteToLog("script "+SYSKERNscriptName+" was loaded");
+                        });
+                    },function(){
+                        WriteToLog("style "+SYSKERNscriptName+" was loaded");
+                    });
+                },function(){
+                    if (!DefaultsAreLoaded){
+                        DefaultsAreLoaded = true;
+                        if (!_NoOutputDuringStartup){
+                            GtE("load_log").innerHTML = ">> Browser version ok<br><br>";
+                            GtE("load_log").innerHTML += ">> Start loading libraries ...<br><br>";
+                        }
+                    }
+					WriteToLog("script "+SYSKERNscriptName+" was loaded");
+				});
+				function StartLoadApp(){
+					log += "Libraries are loaded;\\_> Starting application ...";
+                    if (!_NoOutputDuringStartup)
+                        GtE("load_log").innerHTML += "<br><br>Libraries were loaded<br><br><br>&nbsp&nbsp>> Starting application ...";
+					var waittostart = window.setTimeout(function(){
+						GtEs("loader").display = "none";
+						GtEs("main_grid").display = "block";
+						GtEs("main_grid_a").display = "block";
+						GtEs("main_grid_b").display = "none";
+						LoadedApp = true;
+						StartApp();
+					},(!_NoOutputDuringStartup ? 1200 : 0));
+				}
+			}
+			function WorkPlatformSys(f,e){
+				if (!LoadedApp)
+					return undefined;
+				switch(f){
+					case "OnAlt":
+						OnAlt(e);
+						break;
+					case "KeyDown":
+						KeyDown(e);
+						break;
+					default:
+						break;
+				}
+			}
+			function HandleInteractUI(e,f){
+				if (!LoadedApp)
+					return undefined;
+				else
+					eval(f+"(e);");
+			}
+		</SCRIPT>
+	</BODY>
+</HTML>

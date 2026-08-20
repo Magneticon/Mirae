@@ -1,0 +1,205 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <META CHARSET="UTF-8" AUTHOR="MAGNETICON">
+        <TITLE>COM GEN 4.00</TITLE>
+        <STYLE TYPE="TEXT/CSS">
+            BODY{
+                COLOR: #00CC00;
+                BACKGROUND-COLOR: #000000;
+                FONT-SIZE: 20PX;
+                FONT-FAMILY: 'Pcomm Session', monospace;
+            }
+            #CMD{
+                WIDTH: 90VW;
+                HEIGHT: 12.5VH;
+            }
+            .INPOUT{
+                WIDTH: 45VW;
+                HEIGHT: 25VH;
+                COLOR: #00CCFF;
+                BACKGROUND-COLOR: #000000;
+                BORDER: 3PX SOLID #00CC00;
+                FONT-SIZE: 20PX;
+                BORDER-RADIUS: 10PX;
+                OVERFLOW: AUTO;
+            }
+            .OUT{
+                WIDTH: 90VW;
+                HEIGHT: 35VH;
+                OVERFLOW: AUTO;
+                BORDER: 3PX SOLID #00CC00;
+                COLOR: #FFCC00;
+                BACKGROUND-COLOR: #000000;
+                FONT-SIZE: 20PX;
+                BORDER-RADIUS: 10PX;
+            }
+            .TEXT{
+                BORDER: 3PX SOLID #00CC00;
+                COLOR: #FFCC00;
+                BACKGROUND-COLOR: #000000;
+                FONT-SIZE: 20PX;
+                BORDER-RADIUS: 10PX;
+                WIDTH: 83VW;
+                HEIGHT: 25PX;
+            }
+            .OUTPUTS{
+                WIDTH: 95VW;
+                HEIGHT: 38VH;
+                OVERFLOW-Y: AUTO;
+                OVERFLOW-X: HIDDEN;
+                COLOR: #FFCC00;
+                BACKGROUND-COLOR: #000000;
+            }
+            #MBOX{
+                BACKGROUND-COLOR: #0000AA;
+                COLOR: #FF0000;
+                WIDTH: 30VH;
+                HEIGHT: 8VH;
+                RIGHT: 2VH;
+                TOP: 2VH;
+                DISPLAY: FLEX;
+                JUSTIFY-CONTENT: CENTER;
+                ALIGN-ITEMS: CENTER;
+                FONT-SIZE: 4.5VH;
+                FONT-FAMILY: ARIAL;
+                FONT-WEIGHT: BOLD;
+                POSITION: ABSOLUTE;
+                BORDER-RADIUS: 10PX;
+            }
+            #MBOX:HOVER{
+                BACKGROUND-COLOR: #FF0000;
+                COLOR: #0000AA;
+                CURSOR: POINTER;
+            }
+            .BUTTON{
+                COLOR: #00CC00;
+                BACKGROUND-COLOR: #000000;
+                BORDER: 3PX OUTSET #00CC00;
+                DISPLAY: INLINE-FLEX;
+                JUSTIFY-CONTENT: CENTER;
+                FONT-WEIGHT: BOLD;
+                ALIGN-ITEMS: CENTER;
+                /* WIDTH: 200PX; */
+                HEIGHT: 40PX;
+                CURSOR: POINTER;
+                BORDER-RADIUS: 25PX;
+                WIDTH: FIT-CONTENT;
+                WHITE-SPACE: NOWRAP;
+            }
+            .BUTTONTABLE{
+                BORDER-RADIUS: 0PX;
+                WIDTH: FIT-CONTENT;
+                WHITE-SPACE: NOWRAP;
+            }
+            .BUTTON:HOVER{
+                COLOR: #000000;
+                BACKGROUND-COLOR: #00CC00;
+            }
+            #RECORDS{
+                COLOR: #FF00CC;
+            }
+            .RECORD{
+                COLOR: #FF00CC;
+            }
+            .CONTAINER_BELLOW{
+                DISPLAY: FLEX;
+                FLEX-DIRECTION: COLUMN;
+                JUSTIFY-CONTENT: SPACE-AROUND;
+                HEIGHT: 35VH;
+                WIDTH: 90VW;
+            }
+            .CONTAINER_LINE{
+                DISPLAY: FLEX;
+                JUSTIFY-CONTENT: LEFT;
+                ALIGN-ITEMS: CENTER;
+                HEIGHT: AUTO;
+                WIDTH: 100%;
+            }
+            .LINE_TEXT{
+                DISPLAY: FLEX;
+                JUSTIFY-CONTENT: LEFT;
+                ALIGN-ITEMS: CENTER;
+                HEIGHT: 100%;
+                WIDTH: 9VW;
+            }
+        </STYLE>
+        <SCRIPT TYPE="TEXT/JAVASCRIPT">
+            function RUN(type){
+                GtE("OUT").value = "";
+                var d1 = GtE("INP").value;
+                var H = d1.split(/\n/);
+                var S = GtE("SUFFIX").value;
+                var P = GtE("PREFIX").value;
+                var M = [GtE("MIDFIX01").value, GtE("MIDFIX02").value, GtE("MIDFIX03").value];
+                var R = "";
+                var SK = false;
+                for (var i = 0; i < H.length; i++){
+                    SK = false;
+                    var LN = H[i];
+                    if (H[i].trim().startsWith("%c?", 0))
+                        SK = true;
+                    if (H[i].trim().startsWith("%n?", 0)){
+                        H[i] = "";
+                        SK = false;
+                    }
+                    if (type && !SK)
+                        H[i] = "";
+                    if (R != "") R += "\n";
+                    var W = "";
+                    if (!SK){
+                        W = P;
+                        for (var mi = 0; mi < M.length; mi++){
+                            if (M[mi] != "")
+                                W += ""+H[i].trim()+""+M[mi]+"";
+                        }
+                        W = W+""+H[i].trim()+""+S;
+                    }
+                    else
+                        W = H[i].trim();
+                    W = W.replaceAll("%i?", i);
+                    W = W.replaceAll("%j?", (i-1));
+                    W = W.replaceAll("%ln?", LN);
+                    R += W.trim();
+                }
+                R = R.replaceAll("%il?", i);
+                R = R.replaceAll("%jl?", (i-1));
+                R = R.replaceAll("%c?", "");
+                R = R.replaceAll("%n?", "");
+                R = R.replaceAll("%i?", "");
+                R = R.replaceAll("%ln?", "");
+                R = R.replaceAll("%r?", "\n");
+                GtE("OUT").value = R;
+                GtE("RECORDS").innerHTML = i;
+            }
+            
+            function GtE(id){
+                return document.getElementById(id);
+            }
+        </SCRIPT>
+    </HEAD>
+    <BODY>
+        <H1>COM GEN 4.00</H1>
+        <I>Save manual work and have your thousands records long object list made into commands in no time!</I>
+        <BR>
+        <TABLE>
+            <TR>
+                <TD>INPUT:<BR><TEXTAREA ID="INP" CLASS="INPOUT"></TEXTAREA></TD>
+                <TD>OUTPUT:<BR><TEXTAREA ID="OUT" CLASS="INPOUT" STYLE="COLOR: #CC0000"></TEXTAREA></TD>
+            </TR>
+        </TABLE>
+        <BR>
+        <SPAN CLASS="BUTTON" ONCLICK="JAVASCRIPT: RUN(false);">&nbsp;&nbsp;PROCESS&nbsp;&nbsp;</SPAN>
+        <SPAN CLASS="BUTTON" ONCLICK="JAVASCRIPT: RUN(true);">&nbsp;&nbsp;PROCESS WITHOUT COPYING INPUT&nbsp;&nbsp;</SPAN>
+        <SPAN STYLE="POSITION: ABSOLUTE; RIGHT: 10VH;"><B>TOTAL AMOUNT OF RECORDS:&nbsp;</B><SPAN ID="RECORDS">0</SPAN></SPAN>
+        <BR><BR>
+        <DIV CLASS="CONTAINER_BELLOW">
+            <SPAN CLASS="CONTAINER_LINE"><SPAN CLASS="LINE_TEXT">PREFIX:</SPAN><TEXTAREA TYPE="TEXT" ID="PREFIX" CLASS="TEXT"></TEXTAREA></SPAN>
+            <SPAN CLASS="CONTAINER_LINE"><SPAN CLASS="LINE_TEXT">SUFFIX:</SPAN><TEXTAREA TYPE="TEXT" ID="SUFFIX" CLASS="TEXT"></TEXTAREA></SPAN>
+            <SPAN CLASS="CONTAINER_LINE"><SPAN CLASS="LINE_TEXT">MIDFIX01:</SPAN><TEXTAREA TYPE="TEXT" ID="MIDFIX01" CLASS="TEXT"></TEXTAREA></SPAN>
+            <SPAN CLASS="CONTAINER_LINE"><SPAN CLASS="LINE_TEXT">MIDFIX02:</SPAN><TEXTAREA TYPE="TEXT" ID="MIDFIX02" CLASS="TEXT"></TEXTAREA></SPAN>
+            <SPAN CLASS="CONTAINER_LINE"><SPAN CLASS="LINE_TEXT">MIDFIX03:</SPAN><TEXTAREA TYPE="TEXT" ID="MIDFIX03" CLASS="TEXT"></TEXTAREA></SPAN>
+        </DIV>
+        <DIV ID="MBOX" ONCLICK="JAVASCRIPT: window.open('https://github.com/Magneticon', '_blank');">Magneticon</DIV>
+    </BODY>
+</HTML>

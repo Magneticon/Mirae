@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+	<HEAD>
+		<META CHARSET="UTF-8">
+		<TITLE>MIRAE 1.00</TITLE>
+		<STYLE TYPE="TEXT/CSS">
+			body{
+				COLOR: #FFFFFF;
+				background-color: #000000;
+				overflow: hidden;
+			}
+			#system{
+				margin: 0px;
+				left: 0px;
+				top: 0px;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				border: 0px;
+			}
+		</STYLE>
+	</HEAD>
+	<BODY>
+		<LINK REL="icon" HREF="" ID="shIcon" type="image/svg">
+		<IFRAME ID="system" SRC="MAIN.HTM" ONLOAD="javascript:this.focus();">ASCOM CANNOT BE LOADED ...</IFRAME>
+		<SCRIPT TYPE="TEXT/JAVASCRIPT">
+			//IN ORDER TO USE IAL FUNCTION OF VIEWS SYSTEM, WE HAVE TO RUN THE APPLICATION SEPARATED IN IFRAME ELEMENT
+
+			function GtE(id){
+				return document.getElementById(id);
+			}
+
+			window.addEventListener("message", ReceiveMessage, false);
+
+			function ReceiveMessage(data, source){
+				var datain = [""];
+				try{
+					datain = data.data.split("$$$");
+				}catch(erd){}
+				if (datain[0] == "IALREQ" || datain[1] == "IALREQ"){
+					if (ISIAL)
+						GtE("system").contentWindow.postMessage("IALEST","*");
+				}
+				else{
+					try{
+						if (datain[0] == "EXE"){
+							eval(eval(datain[1]));
+						}
+						else if (datain[0] == "GET"){
+							var subdata = datain[1].split(",");
+							var d = eval(subdata[0].trim());
+							GtE("system").contentWindow.postMessage("RET$$$"+subdata[1].trim()+","+d,"*");
+						}
+						else if (datain[0] == "RET"){
+							var subdata = datain[1].split(",");
+							var d = subdata[0].trim()+"('"+subdata[1].trim()+"');";
+							eval(d);
+						}
+					}catch(erd){}
+				}
+			}
+//			SetFavicon(false);
+			SetFavicon("LIB/SHELL/mirae.svg");
+			function SetFavicon(imgdata){
+				if (!imgdata)
+					GtE("shIcon").href = "data:image/svg+xml,%3Csvg version='1' xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 480 480'%3E%3Cpath d='M307 173c-4-3-7-39-7-80V20h160v160h-73c-41 0-77-3-80-7z' fill='%23ff0'/%3E%3Cpath d='M20 345V229l68 3 67 3 3 113 3 112H20V345z' fill='red'/%3E%3Cpath d='M20 110V20h251l-3 88-3 87-122 3-123 3v-91z' fill='green'/%3E%3Cpath d='M192 338l3-123 133-3 132-3v251H189l3-122z' fill='%2300f'/%3E%3Cpath d='M0 240V0h480v480H0V240zm140 110V250H30v200h110V350zm310-10V230H210v220h240V340zM250 105V30H30v150h220v-75zm200-10V30H320v130h130V95z'/%3E%3C/svg%3E";
+				else
+					GtE("shIcon").href = imgdata;
+			}
+			
+			window.onresize = function(){
+				try{
+					GtE("system").contentWindow.postMessage("EXE$$$\"AutoRepairSystemPosition(0,0,false);\"", "*");
+				}catch(erd){}
+			}
+			
+			/* uncomment bellow if you want to use DTS/IAL window driver even prior loading the views system /*
+			/*
+			window.onload = function(){
+				window.setTimeout(function(){
+					try{
+						GtE("system").contentWindow.postMessage("EXE$$$\"AutoRepairSystemPosition(0,0,false);\"", "*");
+					}catch(erd){}
+				},3500);
+			}
+			*/
+		</SCRIPT>
+	</BODY>
+</HTML>
