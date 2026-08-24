@@ -1,8 +1,9 @@
 ﻿//example hello world program
 
 function notepad100(reg){
+    nottttteef++;
     var win = new ProgInstance("notepad100", "notepad", "1$53$false", reg);
-//    var win = new ProgInstance("helloworld", "helloworld", "1$1$false", reg);
+//    var win = new ProgInstance("helloworld", "helloworld", "1.ico", reg);
     
  //   win.setDataAreaOnly();
 //	win.setTitleBar(true, false);
