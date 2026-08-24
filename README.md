@@ -16,6 +16,7 @@ It is still work in progress - the ASCOM part (command prompt interface) has sti
 <img width="1920" height="1080" alt="mload" src="https://github.com/user-attachments/assets/dd833656-6407-4179-9b64-4b99948db3b3" />
 <img width="1920" height="1080" alt="mload2" src="https://github.com/user-attachments/assets/e3c8f112-d662-44a9-b371-27d35b4c3045" />
 <img width="1920" height="1080" alt="mload3" src="https://github.com/user-attachments/assets/3282ed17-4434-49d9-9ff2-1184152f3b05" />
+<img width="1920" height="1080" alt="m101" src="https://github.com/user-attachments/assets/88a18e05-0cef-4dd8-8e46-9a07cdee6d42" />
 
 To edit various system behavior & install new applications (you can import them as custom JavaScript and CSS files), edit settings in default.js file.
 
