@@ -226,7 +226,8 @@ function SpeedWriteInAdd(id,text){
 		return undefined;
 	if (text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += text;
+//	document.getElementById(id).innerHTML += text;
+	document.getElementById(id).insertAdjacentHTML("beforeend", text);
 	return "done";
 }
 
@@ -235,7 +236,8 @@ function SpeedWriteAdd(id,text){
 		return undefined;
 	if (text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += Vypis(text);
+//	document.getElementById(id).innerHTML += Vypis(text);
+	document.getElementById(id).insertAdjacentHTML("beforeend", Vypis(text));
 	return "done";
 }
 
@@ -246,7 +248,8 @@ function SpeedWriteSpecialAdd(id,translatetext,text){
 		return undefined;
 	if (text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += Vypis(translatetext)+text;
+//	document.getElementById(id).innerHTML += Vypis(translatetext)+text;
+	document.getElementById(id).insertAdjacentHTML("beforeend", Vypis(translatetext)+text);
 	return "done";
 }
 

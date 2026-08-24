@@ -2,7 +2,8 @@
 const _IncludeProgScripts = new Array(
     "MY_PROGRAMS/notepad.js",
     "MY_PROGRAMS/hello_world.js",
-    "MY_PROGRAMS/example.js"
+    "MY_PROGRAMS/example.js",
+    "MY_PROGRAMS/webbrowser.js",
 );
 const _IncludeProgStyles = new Array(
 

@@ -121,6 +121,8 @@ function Create_Window_3(){
 	w.Menus.test.newItem("New18");
 	w.Menus.test.newItem("New20");
 	w.newMenu("test1");
+	w.Menus.test1.newItem("New");
+	w.Menus.test1.newItem("New1");
 	w.newMenu("test2");
 	w.newMenu("test3");
 	w.newMenu("test4");

@@ -21,19 +21,19 @@ const GoodAspectRatioMax = 0.764;
 
 var ComVerName = "ASCOM";//zde bude jméno systému
 var ComVerNameAll = "Advanced System Command";//zde bude celé jméno systému
-var ComVer = "1.00";//zde bude verze systému
+var ComVer = "1.01";//zde bude verze systému
 var ComManufactureMin = "586sys"// zde bude jméno výrobce
 var ComManufacturer = ComManufactureMin+" Inc."// zde bude jméno výrobce
 var ComEnvironment = "console";
 var ComEnvironmentAll = "console line command prompt (CLCP)";//zde bude typ prostředí systému (dlouhý název)
 var ManufacturerRootDate = "2009";
 var ManufacturerDate = "2026";//zde bude rok výroby systému
-var ManufacturerDateAll = ManufacturerDate+"/6/11";//zde bude celé datum výroby systému
+var ManufacturerDateAll = ManufacturerDate+"/8/24";//zde bude celé datum výroby systému
 var ManufacturerOrigin = "United States";// zde bude země původu systému
 var ManufacturerLang = "ENG (INTERNATIONAL) / CZE";// zde bude jazyk systému
 var COMver = 4.95;
 var COMGUIName = "Views System";
-var ComGUIver = 1.14;
+var ComGUIver = 1.17;
 var SystemStartupName = "Views System®";
 var SystemStartupEdition = "Workstation Edition";
 var SystemStartupCorporation = "Copyright © "+ManufacturerRootDate+"-"+ManufacturerDate+" "+ComManufactureMin+" Corporation";
@@ -268,7 +268,8 @@ function SpeedWriteIn(id,text){
 function SpeedWriteInAdd(id,text){
 	if ((!id) || (!CommEcho) || text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += text;
+//	document.getElementById(id).innerHTML += text;
+	document.getElementById(id).insertAdjacentHTML("beforeend", text);
 	return "done";
 }
 
@@ -284,7 +285,8 @@ function SpeedWriteInSpecial(id,text){
 function SpeedWriteInAddSpecial(id,text){
 	if ((!id) || text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += text;
+//	document.getElementById(id).innerHTML += text;
+	document.getElementById(id).insertAdjacentHTML("beforeend", text);
 	return "done";
 }
 
@@ -297,14 +299,16 @@ function SpeedGetFrom(id){
 function SpeedWriteAdd(id,text){
 	if ((!id) || (!CommEcho) || text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += Vypis(text);
+//	document.getElementById(id).innerHTML += Vypis(text);
+	document.getElementById(id).insertAdjacentHTML("beforeend", Vypis(text));
 	return "done";
 }
 
 function SpeedWriteSpecialAdd(id,translatetext,text){
 	if ((!id) || (!CommEcho) || translatetext === undefined || translatetext === null || translatetext == "" || text === undefined || text === null || text == "")
 		return undefined;
-	document.getElementById(id).innerHTML += Vypis(translatetext)+text;
+//	document.getElementById(id).innerHTML += Vypis(translatetext)+text;
+	document.getElementById(id).insertAdjacentHTML("beforeend", Vypis(translatetext)+text);
 	return "done";
 }
 
@@ -399,9 +403,9 @@ String.prototype.replaceAll = function(s, r) {
     return this.split(s).join(r);
 };
 
-Object.prototype.indexOfInMatrix = function (v, vi, ri){
+/* Object.prototype.indexOfInMatrix = function (v, vi, ri){
 	return a = (a = (a = this.find(a => (a = (!isNaN(parseInt(vi, 10)) ? a[vi] : a[0])).toString().toLowerCase() == (((v) && v.toString().toLowerCase()) || 0))) && (!isNaN(parseInt(ri, 10)) ? a[ri] : a)) ? a : undefined;
-};
+};  */
 
 String.prototype.convertToCharCode = function(){
 	for (var i = 0, r = ""; i < this.length; i++)
@@ -512,7 +516,8 @@ function ShowItem(id,type){
 }
 
 function ToHide(data){
-	GetElement("HiddenContent").innerHTML += data;
+//	GetElement("HiddenContent").innerHTML += data;
+	GetElement("HiddenContent").insertAdjacentHTML("beforeend", data);
 	return "done";
 }
 
@@ -552,10 +557,12 @@ function CopyFrameSet(id,type,data){
 			y.body.innerHTML = data;
 			break;
 		case "inneradd":
-			y.body.innerHTML += data;
+//			y.body.innerHTML += data;
+			y.body.insertAdjacentHTML("beforeend", data);
 			break;
 		case "innerhtmladd":
-			y.body.innerHTML += data;
+//			y.body.innerHTML += data;
+			y.body.insertAdjacentHTML("beforeend", data);
 			break;
 		case "style":
 			y.body.style = data;
@@ -1584,14 +1591,16 @@ function BlueScreen(longtextdata, addtechnicalinfo, shorttextdescription, typeof
 			}
 		}catch(erd){}
 	}
-	document.body.innerHTML += '<div id="sysqr" style="width: 140px; height: 140px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="sysqr"/></svg></div>';
+//	document.body.innerHTML += '<div id="sysqr" style="width: 140px; height: 140px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="sysqr"/></svg></div>';
+	document.body.insertAdjacentHTML('beforeend', '<div id="sysqr" style="width: 140px; height: 140px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="sysqr"/></svg></div>');
 	var qrcode = new QRCode(GtE("sysqr"), {
 				text: bsodurl,
 				colorDark : "#000000",
 				colorLight : "#FFFFFF",
 				useSVG: true
 	});
-	document.body.innerHTML += '<div id="sysbrcont" style="height: 4vw; width: 8vw; display: flex; align-items: center; justify-content: center; text-align: center;"><svg id="sysbr"></svg></div>';
+//	document.body.innerHTML += '<div id="sysbrcont" style="height: 4vw; width: 8vw; display: flex; align-items: center; justify-content: center; text-align: center;"><svg id="sysbr"></svg></div>';
+	document.body.insertAdjacentHTML('beforeend', '<div id="sysbrcont" style="height: 4vw; width: 8vw; display: flex; align-items: center; justify-content: center; text-align: center;"><svg id="sysbr"></svg></div>');
 	JsBarcode("#sysbr", typeoferror+code, {
 		format: "CODE128",
 		lineColor: "#000000",

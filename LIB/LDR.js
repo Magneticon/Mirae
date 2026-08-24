@@ -31,7 +31,8 @@ function SetSYSKERN(bool){
 }
 
 function ToImportGrid(data){
-	GtE(ERRORGRID).innerHTML += data;
+//	GtE(ERRORGRID).innerHTML += data;
+	GtE(ERRORGRID).insertAdjacentHTML("beforeend", data);
 	return "done";
 }
 
@@ -69,11 +70,13 @@ function ImportTo(type,domains,timetolive,createSpace,array,callback,callbackfor
 	}
 	if (SYSKERN){
 		ERRORGRID = ERRORGRIDSET+ERRORGRIDCOUNT;
-		GtE(main_grid).innerHTML += "<div id='"+ERRORGRID+"container'><div id='"+ERRORGRID+"'></div></div>";
+//		GtE(main_grid).innerHTML += "<div id='"+ERRORGRID+"container'><div id='"+ERRORGRID+"'></div></div>";
+		GtE(main_grid).insertAdjacentHTML("beforeend", "<div id='"+ERRORGRID+"container'><div id='"+ERRORGRID+"'></div></div>");
 		ERRORGRIDCOUNT++;
 	}
 	if ((createSpace) && (SYSKERN))
-		GtE(ERRORGRID+"container").innerHTML += "<div id='COMSPACECREATOR' class='mainEditBlank'></div>";
+		GtE(ERRORGRID+"container").insertAdjacentHTML("beforeend", "<div id='COMSPACECREATOR' class='mainEditBlank'></div>");
+//		GtE(ERRORGRID+"container").innerHTML += "<div id='COMSPACECREATOR' class='mainEditBlank'></div>";
 	var timeDown = "";
 	SYSKERNDOWNLOAD = true;
 	SYSKERNDOWNLOADBAD = false;

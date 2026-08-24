@@ -1,4 +1,4 @@
-﻿GUISHELLver = 3.17;
+﻿GUISHELLver = 5.03;
 //registry
 var MenuNextCloseColor, MenuNextCloseColorMain, MenuNextOpenColor, MenuNextOpenColorMain, MenuNextSelectedColor, UseNoEditWorkClass, UseNoEditClass, UseNoObjClass, ObjAlt, VC, GridPercentHeight, GridPercentWidth, MethodsOBJM, ObjectMethodId, ObjectWorkData, ActiveInputWrite, MenusTree, MainMenus, MenusTreeAlt, MenusTreeL, MenuLevel, Alt, ToAlt, ResAlt, ResAltId, ResAltOn, ResShortCutsOn, MenuCan, MenuSwitchs, AltCan, ShortCutCan, ShortCutName, ToDeleteMenu, ToDeleteMenuTimeout, ToDisplayId, ToDisplayBoxId, ToDisplayId, ToLevel, ObjHandle, AltKeyAppTimer, ShortCutKeyAppTimer, ActiveFocusAltTimer, DisabledMenus, UseMOVE, ERD, UseIndexSystem, SwitchIndexSystemObj, MoveObj, ObjectLastIndex, ObjectLastIndex, ObjectLastIndexActual, ObjectLastIndexActualIndex, ObjectLastIndexWriteHidden, ObjectLastIndexWrite, ObjectLastIndexWriteMin, ObjectLastIndexWriteMax, IndexSystemWorkProgress, IndexSystemWorkProgressTimer, ObjectBadColor, ObjectDisabledColor, DesktopMenuId, DesktopMenuStatus, DesktopMenuStatusTimer, DesktopMenuStatusBool, DesktopWork, DesktopWorkTimer, LoadTimerData, DesktopIconMapData, DesktopOldMenuSwitch, DesktopMenuSwitchWaiter, DesktopIpart, EmptyIconFill, IconDesktops, IconDesktopsTree, DesktopIconDatabase, IconDesktopGetLastIndex, ActualIconDesktop, WaveDesktopIconWorkTime, WaveDesktopIconWorkData, DesktopColor,  DesktopBackgroundPictures, DesktopBackgroundParameters, DesktopBackgroundRepeats, DesktopBackgroundSizes, DesktopStatusIdentify, SetCursorSubIconStatus, MoveElCode, MoveElDrInnerData, MoveElPosXactual, MoveElPosYactual, MoveElDrId, MoveElPosXstart, MoveElPosYstart, MoveElPosXend, MoveElPosYend, MoveElDpCode, MoveElDpInnerData, MoveElDpId, IconSelection, IconSelectionColor, IconSelectionFilter, CanDrop, selfIconDesktopTryTest, setIconDesktop, ongoingSetIconDesktop, CanSelect, CanCopy, CanDelete, DesktopTrayActionId, Selected, IconSelected, IconSelectedImage, IconSelectionImage, SelectFirst, CanToDrop, ToDropTimer, ToDrop, DRFC, MainSysTray, IconSelectionTitle, StyleDisplay, WSPX, WSPY, WSPXS, WSPYS, WSL, WST, WSDIM, WSJUMP, ChooseWindowRibbonSet, IconSelectionTitleOldColor, StyleShowTimer, AltFire;
 var GUISTARTLOADSET = false;
@@ -403,7 +403,8 @@ class ProgressBar{
                 }
                 else
                     self.IsRun = true;
-                GtE(self.containerId).innerHTML += "<div id='"+self.containerId+"Progress"+self.StartupProgressCount+"' style='position: absolute; background:"+self.partColor+"; width: "+(90/self.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(self.MaximumField,10)*parseInt(self.StartupProgressCount,10)+(5/parseInt(self.MaximumField,10)))+"%;'></div>";
+//                GtE(self.containerId).innerHTML += "<div id='"+self.containerId+"Progress"+self.StartupProgressCount+"' style='position: absolute; background:"+self.partColor+"; width: "+(90/self.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(self.MaximumField,10)*parseInt(self.StartupProgressCount,10)+(5/parseInt(self.MaximumField,10)))+"%;'></div>";
+                GtE(self.containerId).insertAdjacentHTML("beforeend", "<div id='"+self.containerId+"Progress"+self.StartupProgressCount+"' style='position: absolute; background:"+self.partColor+"; width: "+(90/self.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(self.MaximumField,10)*parseInt(self.StartupProgressCount,10)+(5/parseInt(self.MaximumField,10)))+"%;'></div>");
                 self.StartupProgressCount++;
                 if (self.StartupProgressCount == self.MaximumField){
                     self.IsRun = false;
@@ -419,7 +420,8 @@ class ProgressBar{
         }
         else
             this.IsRun = true;
-        GtE(this.containerId).innerHTML += "<div id='"+this.containerId+"Progress"+this.StartupProgressCount+"' style='position: absolute; background:"+this.partColor+"; width: "+(90/this.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(this.MaximumField,10)*parseInt(this.StartupProgressCount,10)+(5/parseInt(this.MaximumField,10)))+"%;'></div>";
+//        GtE(this.containerId).innerHTML += "<div id='"+this.containerId+"Progress"+this.StartupProgressCount+"' style='position: absolute; background:"+this.partColor+"; width: "+(90/this.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(this.MaximumField,10)*parseInt(this.StartupProgressCount,10)+(5/parseInt(this.MaximumField,10)))+"%;'></div>";
+        GtE(this.containerId).insertAdjacentHTML("beforeend", "<div id='"+this.containerId+"Progress"+this.StartupProgressCount+"' style='position: absolute; background:"+this.partColor+"; width: "+(90/this.MaximumField)+"%; height: 90%; top: 5%; left: "+(parseInt(this.MaximumField,10)*parseInt(this.StartupProgressCount,10)+(5/parseInt(this.MaximumField,10)))+"%;'></div>");
         this.StartupProgressCount++;
         if (this.StartupProgressCount == this.MaximumField)
             this.IsRun = false;
@@ -540,7 +542,7 @@ function VisibleIndexSystemDelete(index){
 		try{
 			GtE(ObjectLastIndexActual[i]).style.zIndex = ObjectLastIndexWriteSet;
 		}catch(ERD){
-			console.error("GUI.js --> a error occured in VisibleIndexSystemDelete("+index+") -> element("+ObjectLastIndexActual[i]+") is hidden by user style visibility or style display. Use .hide(true) GUI.js method for hide element. GUI.js may be will not work correctly. // Date of occur: "+GetDate);
+			console.error("GUISHELL.js --> an error occured in VisibleIndexSystemDelete("+index+") -> element("+ObjectLastIndexActual[i]+") is hidden by user style visibility or style display. Use .hide(true) GUISHELL.js method for hide element. GUISHELL.js may not work correctly. // Date of occurence: "+GetDate);
 		}
 		ObjectLastIndexActualIndex[i] = newIndex;
 	}
@@ -566,7 +568,7 @@ function VisibleIndexSystemAdd(id){
 	}
 	if (ObjectLastIndexWrite > ObjectLastIndexWriteMax){
 		ObjectLastIndexWrite--;
-		console.error("GUI.js --> a error occured VisibleIndexSystem("+id+","+bool+") -> ObjectLastIndexWrite was overflowed the ObjectLastIndexWriteMax constant (ObjectLastIndexWrite: "+ObjectLastIndexWrite+"; ObjectLastIndexWriteMax: "+ObjectLastIndexWriteMax+") // Date of occur: "+GetDate);
+		console.error("GUISHELL.js --> an error occured VisibleIndexSystem("+id+","+bool+") -> ObjectLastIndexWrite was overflowed the ObjectLastIndexWriteMax constant (ObjectLastIndexWrite: "+ObjectLastIndexWrite+"; ObjectLastIndexWriteMax: "+ObjectLastIndexWriteMax+") // Date of occurence: "+GetDate);
 		return undefined;
 	}
 	var ObjectLastIndexWriteSet = ObjectLastIndexWrite;
@@ -579,7 +581,7 @@ function VisibleIndexSystemAdd(id){
 	try{
 		GtE(id).style.zIndex = ObjectLastIndexWriteSet;
     }catch(ERD){
-		console.error("GUI.js --> a error occured in VisibleIndexSystemAdd("+id+") -> element("+id+") is hidden by user style visibility or style display. Use .hide(true) GUI.js method for hide element. GUI.js may be will not work correctly. // Date of occur: "+GetDate);
+		console.error("GUISHELL.js --> an error occured in VisibleIndexSystemAdd("+id+") -> element("+id+") is hidden by user style visibility or style display. Use .hide(true) GUISHELL.js method for hide element. GUISHELL.js may not work correctly. // Date of occurence: "+GetDate);
 		return undefined;
 	}
 	ObjectLastIndexActual.push(id);
@@ -612,7 +614,7 @@ function VisibleIndexSystem(id,bool,escapebool){
 		}
 	}
 	catch(ERD){
-		console.error("GUI.js --> a error occured in VisibleIndexSystem("+id+","+bool+") -> GUI system cannot work with zIndex of elements. Is recommended to restart the GUI system and fix this error.\n -> Error information: "+ERD+" // Date of occur: "+GetDate);
+		console.error("GUISHELL.js --> an error occured in VisibleIndexSystem("+id+","+bool+") -> GUI system cannot work with zIndex of elements. Is recommended to restart the GUI system and fix this error.\n -> Error information: "+ERD+" // Date of occurence: "+GetDate);
 		return undefined;
 	}
 }
@@ -1057,6 +1059,15 @@ class ObjectWork extends ObjectMethods{
 				return true;
 			}
 		}
+		this.Edit.setFlex = function (){
+			GtE(self.Id).style.display = "flex";
+		}
+        this.Edit.setFlexCenter = function (){
+            GtE(self.Id).style.display = "flex";
+            GtE(self.Id).style.textAlign = "center";
+            GtE(self.Id).style.justifyContent = "space-between";
+            GtE(self.Id).style.alignItems = "center";
+		}
 		this.Edit.showFlex = function (data){
 			if ((data)){
 				GtE(self.Id).style.display = "flex";
@@ -1067,7 +1078,6 @@ class ObjectWork extends ObjectMethods{
 			else
 				return true;
 		}
-		
 		this.Edit.show = function (data){
 			if (data){
 				GtE(self.Id).style.display = "block";
@@ -1112,7 +1122,8 @@ class ObjectWork extends ObjectMethods{
 			var oldData = GtE(self.Id).innerHTML;
 			eval("self.Objects."+id+" = new ElObj(self,windowSelf,false);");
 			eval("self.Objects."+id+".Id = '"+id+"'");
-			GtE(self.Id).innerHTML = "<div id='"+id+"'>"+oldData+"</div>";
+//			GtE(self.Id).innerHTML = "<div id='"+id+"'>"+oldData+"</div>";
+			GtE(self.Id).insertAdjacentHTML("beforeend", "<div id='"+id+"'>"+oldData+"</div>");
 			return id;
 		}
 		this.Edit.unSetToObj = function(id){
@@ -1152,7 +1163,8 @@ class ObjectWork extends ObjectMethods{
 		}
 		this.Edit.trInAdd = function(name){
 			name = Translate(name);
-			GtE(self.Id).innerHTML += name;
+//			GtE(self.Id).innerHTML += name;
+			GtE(self.Id).insertAdjacentHTML("beforeend", name);
 			return name;
 		}
 		this.Edit.trInSpecial = function(name){
@@ -1162,7 +1174,8 @@ class ObjectWork extends ObjectMethods{
 		}
 		this.Edit.trInAddSpecial = function(name){
 			name = Translate(name);
-			GtE(self.Id+"C").innerHTML += name;
+//			GtE(self.Id+"C").innerHTML += name;
+			GtE(self.Id+"C").insertAdjacentHTML("beforeend", name);
 			return name;
 		}
 		this.Edit.value = function(name){
@@ -1192,7 +1205,8 @@ class ObjectWork extends ObjectMethods{
 			return name;
 		}
 		this.Edit.writeInAdd = function(name){
-			GtE(self.Id).innerHTML += name;
+//			GtE(self.Id).innerHTML += name;
+			GtE(self.Id).insertAdjacentHTML("beforeend", name);
 			return name;
 		}
 		this.Edit.writeInSpecial = function(name){
@@ -1200,7 +1214,8 @@ class ObjectWork extends ObjectMethods{
 			return name;
 		}
 		this.Edit.writeInAddSpecial = function(name){
-			GtE(self.Id+"C").innerHTML += name;
+//			GtE(self.Id+"C").innerHTML += name;
+			GtE(self.Id+"C").insertAdjacentHTML("beforeend", name);
 			return name;
 		}
 		this.Edit.onClick = function(code){
@@ -1213,6 +1228,54 @@ class ObjectWork extends ObjectMethods{
 			if (!code)
 				return undefined;
 			eval("GtE(self.Id).onclick += function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeydown = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeydown = function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeydownAdd = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeydown += function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeyup = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeyup = function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeyupAdd = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeyup += function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeypress = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeypress = function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onKeypressAdd = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onkeypress += function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onLoad = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onload = function(){"+code+"};");
+			return "done";
+		}
+		this.Edit.onLoadAdd = function(code){
+			if (!code)
+				return undefined;
+			eval("GtE(self.Id).onload += function(){"+code+"};");
 			return "done";
 		}
 		this.Edit.setObject = function (key,data){
@@ -1521,6 +1584,32 @@ class ObjectWork extends ObjectMethods{
 		}
 		return "[Object of methods for work with elements]";
 	}
+    setCode(code){
+        //we shall use this function in our custom applications to prevent overwritting system defined codes for menu functions
+        return this.Edit.setCodeAdd(code);
+    }
+    setCodeAdd(code){
+        return this.Edit.setCodeAdd(code);
+    }
+    unSetCode(data){
+        return this.Edit.unSetCode(data);
+    }
+    getCode(){
+        return this.Edit.getCode();
+    }
+    setCodeDbl(data){
+        //we shall use this function in our custom applications to prevent overwritting system defined codes for menu functions
+        return this.Edit.setCodeAddDbl(data);
+    }
+    unSetCodeDbl(data){
+        return this.Edit.unSetCodeDbl(data);
+    }
+    setCodeAddDbl(data){
+        return this.Edit.setCodeAddDbl(data);
+    }
+    getCodeDbl(){
+        return this.Edit.getCodeDbl();
+    }
 	destroyObjectWork(){
 		try{
 			for (var x in this.Objects){
@@ -1570,7 +1659,8 @@ class Button extends ObjectWork{
 		this.createBool = createBool;
 		this.MoveObjCreated = false;
 		if (this.createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<button id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id);VisibleIndexSystem(\''+this.Id+'\',true,false);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);" value=""></button>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<button id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id);VisibleIndexSystem(\''+this.Id+'\',true,false);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);" value=""></button>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<button id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id);VisibleIndexSystem(\''+this.Id+'\',true,false);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);" value=""></button>');
 		this.Created = true;
 		this.create();
 		this.edit();
@@ -1583,7 +1673,7 @@ class Button extends ObjectWork{
 			eval("MoveObj."+this.Id+" = {};");
 			eval("MoveObj."+this.Id+".move = false;");
 			eval("MoveObj."+this.Id+".moveId = '"+this.Id+"';");
-			this.MoveObjCreated = true;			
+			this.MoveObjCreated = true;
 		}
 	}
 	edit(){
@@ -1612,31 +1702,31 @@ class Button extends ObjectWork{
 			if (!resizeElementClass)
 				resizeElementClass = "resizeDefElemClass";
 			RegisterMove(self.Id);
-			SR(self.Id,resizeElementClass,"none");	
+			SR(self.Id,resizeElementClass,"none");
 			return "done";
 		}		
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}
 		if (UseNoEditClass){
@@ -1672,7 +1762,8 @@ class ElObj extends ObjectWork{
 		this.createBool = createBool;
 		this.MoveObjCreated = false;
 		if (this.createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id); VisibleIndexSystem(\''+this.Id+'\',true,false);" ondblclick="javascript:BtnEvalDbl(this.id);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);"></div>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id); VisibleIndexSystem(\''+this.Id+'\',true,false);" ondblclick="javascript:BtnEvalDbl(this.id);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);"></div>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" ondrop="javascript:ElDp(event);" ondragleave="javascript:ElDrLe(event);" ondragover="javascript:ElDrOv(event);" ondragenter="javascript:ElDrEn(event);" ondragend="javascript:ElDrEn(event);" ondragstart="javascript:ElDrSt(event);" ondrag="javascript:ElDr(event);" onmousedown="javascript:WorkMouse(this.id);" onmouseup="javascript:WorkMouseUp(this.id);" onclick="javascript:BtnEval(this.id); VisibleIndexSystem(\''+this.Id+'\',true,false);" ondblclick="javascript:BtnEvalDbl(this.id);" onfocus="javascript:VisibleIndexSystem(\''+this.Id+'\',true,false);"></div>');
 		this.Created = true;
 		this.create();
 		this.edit();
@@ -1685,7 +1776,7 @@ class ElObj extends ObjectWork{
 			eval("MoveObj."+this.Id+" = {};");
 			eval("MoveObj."+this.Id+".move = false;");
 			eval("MoveObj."+this.Id+".moveId = '"+this.Id+"';");
-			this.MoveObjCreated = true;			
+			this.MoveObjCreated = true;
 		}
 	}
 	edit(){
@@ -1714,31 +1805,31 @@ class ElObj extends ObjectWork{
 			if (!resizeElementClass)
 				resizeElementClass = "resizeDefElemClass";
 			RegisterMove(self.Id);
-			SR(self.Id,resizeElementClass,"none");	
+			SR(self.Id,resizeElementClass,"none");
 			return "done";
 		}		
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}		
 		if (UseNoEditClass){
@@ -1785,7 +1876,8 @@ class Anchor extends ObjectWork{
 		this.Href = href;
 		this.createBool = createBool;
 		if (this.createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<a id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" href="'+this.Href+'";>'+this.Value+'</a>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<a id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" href="'+this.Href+'";>'+this.Value+'</a>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<a id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" href="'+this.Href+'";>'+this.Value+'</a>');
 		this.Created = true;
 		this.edit();
 	}
@@ -1799,25 +1891,25 @@ class Anchor extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}
 		if (UseNoEditClass){
@@ -1830,7 +1922,7 @@ class Anchor extends ObjectWork{
 		GtE(this.Id).href = path;
 	}
 	setName(name){
-		GtE(this.id).value = name;
+		GtE(this.Id).value = name;
 	}
 	destroyAnchor(){
 		try{
@@ -1862,7 +1954,8 @@ class Audio extends ObjectWork{
 		this.MediaType = mediatype;
 		this.createBool = createBool;
 		if (this.createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<audio id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></audio>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<audio id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></audio>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<audio id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></audio>');
 		this.Created = true;
 		this.edit();
 	}
@@ -1945,7 +2038,8 @@ class Video extends ObjectWork{
 		this.MediaType = mediatype;
 		this.createBool = createBool;
 		if (createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<video id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></video>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<video id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></video>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<video id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" '+this.HtmlTags+'><source src="'+this.src+'" type="'+this.MediaType+'"></video>');
 		this.Created = true;
 		this.edit();
 	}
@@ -1959,13 +2053,13 @@ class Video extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
@@ -2026,7 +2120,8 @@ class Image extends ObjectWork{
 		this.Src = src;
 		this.createBool = createBool;
 		if (this.createBool)
-			GtE(this.ParentSelf.Id).innerHTML += '<img id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" onmousedown="javascript:WorkMouse(this.id);" onclick="javascript:BtnEval(this.id);" src="'+this.Src+'">';
+//			GtE(this.ParentSelf.Id).innerHTML += '<img id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" onmousedown="javascript:WorkMouse(this.id);" onclick="javascript:BtnEval(this.id);" src="'+this.Src+'">';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<img id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" onmousedown="javascript:WorkMouse(this.id);" onclick="javascript:BtnEval(this.id);" src="'+this.Src+'">');
 		this.Created = true;
 		this.edit();
 	}
@@ -2040,19 +2135,19 @@ class Image extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
@@ -2100,7 +2195,8 @@ class Input extends ObjectWork{
 		this.HtmlTags = htmltags;
 		this.createBool = createBool;
 		if (this.createBool){
-			GtE(this.ParentSelf.Id).innerHTML += '<input id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" input type="'+this.Type+'" value="'+this.Value+'" '+this.HtmlTags+'>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<input id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" input type="'+this.Type+'" value="'+this.Value+'" '+this.HtmlTags+'>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<input id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" input type="'+this.Type+'" value="'+this.Value+'" '+this.HtmlTags+'>');
 			this.Edit.cssClass("WindowInput");
 		}
 		this.Created = true;
@@ -2116,25 +2212,25 @@ class Input extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}
 		if (UseNoEditClass){
@@ -2144,7 +2240,10 @@ class Input extends ObjectWork{
 		return "[Object of methods for work with ElementObject";
 	}
 	setValue(value){
-		GtE(this.id).value = value;
+		GtE(this.Id).value = value;
+	}
+	setPlaceholder(value){
+		GtE(this.Id).placeholder = value;
 	}
 	destroyInput(){
 		try{
@@ -2175,7 +2274,8 @@ class Iframe extends ObjectWork{
 		this.HtmlTags = htmltags;
 		this.createBool = createBool;
 		if (this.createBool){
-			GtE(this.ParentSelf.Id).innerHTML += '<iframe id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" src="'+this.Src+'" '+this.HtmlTags+'></iframe>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<iframe id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" src="'+this.Src+'" '+this.HtmlTags+'></iframe>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<iframe id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" src="'+this.Src+'" '+this.HtmlTags+'></iframe>');
 			this.Edit.cssClass("WindowIframe");
 		}
 		this.Created = true;
@@ -2191,25 +2291,25 @@ class Iframe extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}
 		if (UseNoEditClass){
@@ -2219,8 +2319,14 @@ class Iframe extends ObjectWork{
 		return "[Object of methods for work with ElementObject";
 	}
 	setSrc(value){
-		GtE(this.id).src = value;
+		GtE(this.Id).src = value;
 	}
+	getSrc(){
+		return GtE(this.Id).src;
+	}
+    reload(){
+        GtE(this.Id).src = GtE(this.Id).src;
+    }
 	destroyIframe(){
 		try{
 			this.Edit.removeAlt();
@@ -2252,7 +2358,8 @@ class Textarea extends ObjectWork{
 		this.HtmlTags = htmltags;
 		this.createBool = createBool;
 		if (this.createBool){
-			GtE(this.ParentSelf.Id).innerHTML += '<textarea id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" cols="'+this.Cols+'" rows="'+this.Rows+'" '+this.HtmlTags+'>'+this.Value+'</textarea>';
+//			GtE(this.ParentSelf.Id).innerHTML += '<textarea id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" cols="'+this.Cols+'" rows="'+this.Rows+'" '+this.HtmlTags+'>'+this.Value+'</textarea>';
+			GtE(this.ParentSelf.Id).insertAdjacentHTML('beforeend', '<textarea id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'" cols="'+this.Cols+'" rows="'+this.Rows+'" '+this.HtmlTags+'>'+this.Value+'</textarea>');
 			this.Edit.cssClass("WindowTextarea");
 		}
 		this.Created = true;
@@ -2268,25 +2375,25 @@ class Textarea extends ObjectWork{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveShortCut(self.Id);		
+			ElObjRemoveShortCut(self.Id);
 			return "done";
 		}
 		this.Edit.removeAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjRemoveAlt(self.Id);		
+			ElObjRemoveAlt(self.Id);
 			return "done";
 		}
 		if (UseNoEditClass){
@@ -2296,7 +2403,10 @@ class Textarea extends ObjectWork{
 		return "[Object of methods for work with ElementObject";
 	}
 	setValue(value){
-		GtE(this.id).value = value;
+		GtE(this.Id).value = value;
+	}
+	setPlaceholder(value){
+		GtE(this.Id).placeholder = value;
 	}
 	destroyTextarea(){
 		try{
@@ -2396,13 +2506,13 @@ class Element extends ElObj{
 		this.Edit.addShortCut = function (tag){
 			if ((!tag) || (!self.createBool))
 				return undefined;
-			ElObjAddShortCut(self.Id,tag);		
+			ElObjAddShortCut(self.Id,tag);
 			return "done";
 		}
 		this.Edit.addAlt = function (){
 			if (!self.createBool)
 				return undefined;
-			ElObjAddAlt(self.Id);		
+			ElObjAddAlt(self.Id);
 			return "done";
 		}
 		this.Edit.removeShortCut = function (){
@@ -2425,7 +2535,7 @@ class Element extends ElObj{
 	}
 	newButton(name){
 		eval("this.Buttons."+name+" = new ElObj(this,this.WindowSelf,true);");
-		eval("this.Buttons."+name+".Edit.cssClass('WindowButton');");
+		eval("this.Buttons."+name+".Edit.cssClass('button');");
 		eval("this.Obj."+name+" = this.Buttons."+name+";");
 		eval("this.Obj."+name+".Edit.writeIn('"+name+"');");
 		eval("this.Obj."+name+".Edit.addAlt();");
@@ -2433,6 +2543,26 @@ class Element extends ElObj{
 			eval("this."+name+" = this.Buttons."+name+";");
 	}
 	removeButton(name){
+		try{
+			eval("this.Buttons."+name+".destroy();");
+		}catch(erd){}
+		try{
+			eval("delete this.Obj."+name+";");
+		}catch(erd){}
+		try{
+			eval("delete this.Buttons."+name+";");
+		}catch(erd){}
+	}
+	newScreenButton(name){
+		eval("this.Buttons."+name+" = new ElObj(this,this.WindowSelf,true);");
+		eval("this.Buttons."+name+".Edit.cssClass('WindowButton');");
+		eval("this.Obj."+name+" = this.Buttons."+name+";");
+		eval("this.Obj."+name+".Edit.writeIn('"+name+"');");
+		eval("this.Obj."+name+".Edit.addAlt();");
+		if (UseNoObjClass)
+			eval("this."+name+" = this.Buttons."+name+";");
+	}
+	removeScreenButton(name){
 		try{
 			eval("this.Buttons."+name+".destroy();");
 		}catch(erd){}
@@ -2654,9 +2784,9 @@ class Menu extends ElObj{
 			eval("this.Box.Objects."+this.Box.Id+"D.Edit.cssClass('WindowMenuBoxSet');");
 			this.Box.Edit.cssClass('WindowMenuBox WindowMenuBoxCustom');
 			this.Box.Id = this.Box.Id+"D";
-			this.Edit.setCode("ToogleMenu('"+this.Id+"','"+this.Box.Id+"');setMenuCan();");
-			eval("MenusTree."+this.Id+" = '"+this.Box.Id+"';");
-			eval("MenusTreeL."+this.Id+" = '"+this.Lvl+"';");
+			this.Edit.setCode("ToogleMenu('"+this.Id+"','"+this.Box.Id+"','"+this.WindowSelf.Id+"');setMenuCan();SetMenuAutoClose('"+this.WindowSelf.WinMenuDataArea.Id+"', '"+this.WindowSelf.TitleMenus.Id+"', '"+this.WindowSelf.Data.Id+"','"+this.Id+"','"+this.Box.Id+"','"+this.WindowSelf.Id+"');");
+			eval("MenusTree."+this.WindowSelf.Id+"."+this.Id+" = '"+this.Box.Id+"';");
+			eval("MenusTreeL."+this.WindowSelf.Id+"."+this.Id+" = '"+this.Lvl+"';");
 			if (UseIndexSystem){
 				this.Box.Edit.setIndexSystem(this.Box.Id);
 				this.Edit.setIndexSystem(this.Box.Id);
@@ -2677,7 +2807,7 @@ class Menu extends ElObj{
 		this.Tick = false;
 		this.SwitchGroup = undefined;
 		this.Disabled = false;
-		self.closeMenus();
+		this.closeMenus();
 	//	var wait = window.setTimeout(this.closeMenus,140);
 	}
 	setEnabled(){
@@ -2691,17 +2821,17 @@ class Menu extends ElObj{
 		GtE(this.Id).style.color = this.NormalColor;
 		var DelPos = DisabledMenus.indexOf(this.Id);
 		if (DelPos != -1)
-			DisabledMenus.splice(DelPos,1);		
+			DisabledMenus.splice(DelPos,1);
 		return true;
 	}
 	setDisabled(){
 		this.Disabled = true;
 		if (GtE(this.Id).style.color != this.DisabledColor && (GtE(this.Id).style.color))
 			this.NormalColor = GtE(this.Id).style.color;
-		GtE(this.Id).style.color = this.DisabledColor;	
+		GtE(this.Id).style.color = this.DisabledColor;
 		if (DisabledMenus.indexOf(this.Id) == -1)
 			DisabledMenus.push(this.Id);
-		return true;		
+		return true;
 	}
 	getTick(){
 		if (this.Tick)
@@ -2709,19 +2839,19 @@ class Menu extends ElObj{
 		else
 			return false;
 	}
-	setTick(){
+	setTick(type){
 			if (this.Control)
 				return undefined;
 			if (this.Tick){
 				this.Tick = false;
 				var data = GWriteUnConvert(GtE(this.Id).textContent);
 				this.Edit.writeIn(GWriteConvert(data.slice(2)));
-				GtE(this.Id).style.marginLeft = "2%";
+				GtE(this.Id).style.paddingLeft = "";
 			}
 			else{
 				this.Tick = true;
 				this.Edit.writeIn("&#10004 "+GWriteConvert(GWriteUnConvert(GtE(this.Id).textContent)));
-				GtE(this.Id).style.marginLeft = "-8%";				
+				GtE(this.Id).style.paddingLeft = "0vh";
 			}
 	}
 	setTicked(bool){
@@ -2731,12 +2861,12 @@ class Menu extends ElObj{
 				this.Tick = false;
 				var data = GWriteUnConvert(GtE(this.Id).textContent);
 				this.Edit.writeIn(GWriteConvert(data.slice(2)));
-				GtE(this.Id).style.marginLeft = "2%";
+				GtE(this.Id).style.paddingLeft = "";
 			}
 			else{
 				this.Tick = true;
 				this.Edit.writeIn("&#10004 "+GWriteConvert(GWriteUnConvert(GtE(this.Id).textContent)));
-				GtE(this.Id).style.marginLeft = "-8%";				
+				GtE(this.Id).style.paddingLeft = "0vh";
 			}
 	}
 	setTickData(){
@@ -2744,7 +2874,7 @@ class Menu extends ElObj{
 			return undefined;
 		this.Tick = true;
 		this.Edit.writeIn("&#10004 "+GWriteConvert(GWriteUnConvert(GtE(this.Id).textContent)));
-		GtE(this.Id).style.marginLeft = "-8%";				
+		GtE(this.Id).style.paddingLeft = "0vh";
 	}
 	getTickData(){
 		if (this.Control)
@@ -2753,37 +2883,37 @@ class Menu extends ElObj{
 			this.Tick = false;
 			var data = GWriteUnConvert(GtE(this.Id).textContent);
 			this.Edit.writeIn(GWriteConvert(data.slice(2)));
-			GtE(this.Id).style.marginLeft = "2%";
+			GtE(this.Id).style.paddingLeft = "";
 		}
 	}
 	setSwitch(){
-		if ((this.Control) || (!eval("MenuSwitchs."+this.ParentSelf.Id)) || (!eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")) || (eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch") == this.Id))
+		if ((this.Control) || (!eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id)) || (!eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")) || (eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch") == this.Id))
 			return undefined
-		var data = GWriteUnConvert(GtE(eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).textContent);
-		GtE(eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).innerHTML = GWriteConvert(data.slice(2));
-		GtE(eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).style.marginLeft = "2%";
+		var data = GWriteUnConvert(GtE(eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).textContent);
+		GtE(eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).innerHTML = GWriteConvert(data.slice(2));
+		GtE(eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch")).style.paddingLeft = "";
 		this.Edit.writeIn("● "+GWriteConvert(GWriteUnConvert(GtE(this.Id).textContent)));
-		GtE(this.Id).style.marginLeft = "-6%";
-		eval("MenuSwitchs."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch = this.Id");
+		GtE(this.Id).style.paddingLeft = "0vh";
+		eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+this.SwitchGroup+".ActualSwitch = this.Id");
 	}
 	addSwitch(name){
 		if (!name)
 			return undefined;
 		var SwitchIt = false;
-		if (!eval("MenuSwitchs."+this.ParentSelf.Id)){
-			eval("MenuSwitchs."+this.ParentSelf.Id+" = {};");
+		if (!eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id)){
+			eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+" = {};");
 			SwitchIt = true;
-		}			
-		if (!eval("MenuSwitchs."+this.ParentSelf.Id+"."+name)){
-			eval("MenuSwitchs."+this.ParentSelf.Id+"."+name+" = {};");
-			eval("MenuSwitchs."+this.ParentSelf.Id+"."+name+".ActualSwitch = this.Id");
+		}
+		if (!eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+name)){
+			eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+name+" = {};");
+			eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+name+".ActualSwitch = this.Id");
 			SwitchIt = true;
 		}
 		eval("this.SwitchGroup = '"+name+"';");
 		if (SwitchIt){
 			this.Edit.writeIn("● "+GWriteConvert(GWriteUnConvert(GtE(this.Id).textContent)));
-			GtE(this.Id).style.marginLeft = "-6%";
-			eval("MenuSwitchs."+this.ParentSelf.Id+"."+name+".ActualSwitch = this.Id");
+			GtE(this.Id).style.paddingLeft = "0vh";
+			eval("MenuSwitchs."+this.WindowSelf.Id+"."+this.ParentSelf.Id+"."+name+".ActualSwitch = this.Id");
 		}
 	}
 	addSeparator(name){
@@ -2791,7 +2921,7 @@ class Menu extends ElObj{
 			return undefined;
 		this.openMenus();
 		eval("this.Separators."+name+" = new ElObj(this.Box,this.WindowSelf,false);");
-		this.Box.writeInAdd("<hr id='"+eval("this.Separators."+name+".Id")+"'>");
+		this.Box.Edit.writeInAdd("<hr id='"+eval("this.Separators."+name+".Id")+"'>");
 		self.closeMenus();
 	}
 	removeSeparator(name){
@@ -2809,7 +2939,8 @@ class Menu extends ElObj{
 			return undefined;
 		this.openMenus();
 		eval("this.Items."+name+" = new Menu('"+name+"',this.Box,this.WindowSelf,"+this.Lvl+",false);");
-		eval("MenusTreeAlt."+eval("this.Items."+name+".Id")+" = 'none';");
+		eval("MenusTreeAlt."+this.WindowSelf.Id+"."+eval("this.Items."+name+".Id")+" = 'none';");
+        eval("this.Items."+name+".Edit.setCodeAdd(\"CloseMenu('"+eval("this.Items."+name+".Id")+"','"+eval("this.Items."+name+".WindowSelf.Id")+"');\");");
 		if (UseNoObjClass)
 			eval("this."+name+" = this.Items."+name+";");
 		eval("this.Obj."+name+" = this.Items."+name+";");
@@ -2821,11 +2952,11 @@ class Menu extends ElObj{
 			return undefined;
 		this.openMenus();
 		try{
-			eval("delete MenusTreeAlt."+eval("this.Items."+name+".Id")+";");
+			eval("delete MenusTreeAlt."+this.WindowSelf.Id+"."+eval("this.Items."+name+".Id")+";");
 		}catch(erd){}
 		try{
 			eval("this.Items."+name+".destroy();");
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			eval("delete this.Items."+name+";");
 		}catch(erd){}
@@ -2838,7 +2969,7 @@ class Menu extends ElObj{
 		try{
 			eval("delete this.Obj."+name+";");
 		}catch(erd){}
-		self.closeMenus();		
+		self.closeMenus();
 	}
 	newMenuNext(name){
 		if (!name)
@@ -2850,32 +2981,49 @@ class Menu extends ElObj{
 		eval("this.Menus."+name+".Edit.writeInAdd = this.Menus."+name+".Edit.writeInAddSpecial");
 		eval("this.Menus."+name+".writeIn = this.Menus."+name+".Edit.writeInSpecial");
 		eval("this.Menus."+name+".writeInAdd = this.Menus."+name+".Edit.writeInAddSpecial");
-		eval("MenusTreeAlt."+eval("this.Menus."+name+".Id")+"C = '"+eval("this.Menus."+name+".Box.Id")+"';");
+		eval("MenusTreeAlt."+this.WindowSelf.Id+"."+eval("this.Menus."+name+".Id")+"C = '"+eval("this.Menus."+name+".Box.Id")+"';");
+        eval("this.Menus."+name+".Edit.setCodeAdd('SetNewMenu(\""+eval("this.Menus."+name+".Id")+"\", \""+eval("this.Menus."+name+".Box.Id")+"\")');");
 		if (UseNoObjClass)
 			eval("this."+name+" = this.Menus."+name+";");
 		eval("this.Obj."+name+" = this.Menus."+name+";");
-		var I = eval("this.Menus."+name+".Box.Id");
-		var D = eval("this.Menus."+name+".Id");
-		I = I.slice(0,parseInt(I.length,10)-1);
-		var asdf = window.setTimeout(function(self){
-		self.openMenus();
-		var H = GtE(GtE(GtE(D).parentNode.id).parentNode.id).offsetTop;
-		var B = GtE(D).offsetHeight;
-		var T = GtE(D).offsetTop;
-		GtE(I).style.top = (T+H-(B*1.2))+"px";
-		self.closeMenus();
-		},100,this);
+//		this.I = eval("this.Menus."+name+".Box.Id");
+//		this.D = eval("this.Menus."+name+".Id");
+  //      this.Z = eval("this.Menus."+name+".Id")+"A";
+	//	I = I.slice(0,parseInt(I.length,10)-1);
+   //     this.as = window.setTimeout(function(self, mid, mbox, zid){
+ //           self.openMenus();
+        //    var B = GtE(mid).offsetHeight;
+     //               console.log(mid+":"+mbox+":"+zid);
+      //              console.warn(document.getElementById(zid));
+   //         this.T = GtE(this.D).offsetTop;
+  //          var T = GtE(mid).offsetTop-GtE(mid).clientHeight;
+  //          var L = GtE(mid).offsetLeft;
+  //          console.log(GtE(mid));
+ //           console.log(T+":"+L+":"+mid);
+ //           GtEs(mbox).top = T+"px";
+ //           GtEs(mbox).left = L+"px";
+ //           self.closeMenus();
+  //      }, 1000, this, this.D, this.I, this.Z);
+	//	var asdf = window.setTimeout(function(self, name){
+//		self.openMenus();
+ //       alert(self.Id);
+//		var H = GtE(GtE(GtE(self.Id).parentNode.id).parentNode.id).offsetTop;
+//		var B = GtE(self.Id).offsetHeight;
+//		var T = GtE(self.Id).offsetTop;
+//		GtEs(eval("self.Menus."+name+".Id")).top = (T-(B*1.2))+"px";
+//		self.closeMenus();
+//		},1000,this, name);
 	}
 	removeMenuNext(name){
 		if (!name)
 			return undefined;
 		this.openMenus();
 		try{
-			eval("delete MenusTreeAlt."+eval("this.Menus."+name+".Id")+"C;");
+			eval("delete MenusTreeAlt."+this.WindowSelf.Id+"."+eval("this.Menus."+name+".Id")+"C;");
 		}catch(erd){}
 		try{
 			eval("this.Menus."+name+".destroy();");
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			eval("delete this.Menus."+name+";");
 		}catch(erd){}
@@ -2888,17 +3036,33 @@ class Menu extends ElObj{
 		try{
 			eval("delete this.Obj."+name+";");
 		}catch(erd){}
-		self.closeMenus();		
+		self.closeMenus();
 	}
 	openMenus(){
-		for (var i = 0; i < MenusTree.length; i++)
-			MenuAlign(this.Id, GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)), true);
-		return "done";
+        try{
+            var MTree = eval("MenusTree."+this.WindowSelf.Id);
+            for (var i in MTree)
+                MenuAlign(this.Id, GtE(MTree[i].slice(0,parseInt(MTree[i].length,10)-1)), true);
+/*            for (var i = 0; i < MTree.length; i++)
+                MenuAlign(this.Id, GtE(MTree[i].slice(0,parseInt(MTree[i].length,10)-1)), true);   */
+            return "done";
+        }catch(erd){
+            return undefined;
+        }
 	}
 	closeMenus(){
-		for (var i = 0; i < MenusTree.length; i++)
-			GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.display = "none";
-		return "done";
+        try{
+            var MTree = eval("MenusTree."+this.WindowSelf.Id);
+            for (var i in MTree)
+                GtE(MTree[i].slice(0,parseInt(MTree[i].length,10)-1)).style.display = "none";
+            return "done";
+/*            for (var i = 0; i < MTree.length; i++){
+                GtE(MTree[i].slice(0,parseInt(MTree[i].length,10)-1)).style.display = "none";
+                return "done";
+            }   */
+        }catch(erd){
+            return undefined;
+        }
 	}
 	addShortCut(tag){
 		if (!tag)
@@ -2908,16 +3072,16 @@ class Menu extends ElObj{
 			var L = GtE(this.Id).offsetLeft;
 			var ID = this.Box.Id;
 			ID = ID.slice(0,parseInt(ID.length,10)-1);
-			GtE(ID).style.marginLeft = L+"px";	
+			GtE(ID).style.marginLeft = L+"px";
 		}
 		ElObjAddShortCut(this.Id,tag);
 		var wait = window.setTimeout(function(self){
 		self.closeMenus();
-		},100,this);		
+		},100,this);
 	}
 	removeShortCut(){
 		this.openMenus();
-		ElObjRemoveShortCut(this.Id);	
+		ElObjRemoveShortCut(this.Id);
 		var wait = window.setTimeout(function(self){
 			self.closeMenus();
 		},100,this);
@@ -2939,13 +3103,13 @@ class Menu extends ElObj{
 			this.Box = null;
 		}catch(erd){}
 		try{
-			eval("delete MenusTree."+this.Id+";");
+			eval("delete MenusTree."+this.WindowSelf.Id+"."+this.Id+";");
 		}catch(erd){}
 		try{
-			eval("delete MenusTreeL."+this.Id+";");
+			eval("delete MenusTreeL."+this.WindowSelf.Id+"."+this.Id+";");
 		}catch(erd){}
 		try{
-			eval("delete MainMenus."+this.Id+";");
+			eval("delete MainMenus."+this.WindowSelf.Id+"."+this.Id+";");
 		}catch(erd){}
 		try{
 			super.destroy();
@@ -2963,7 +3127,8 @@ function ElObjAddShortCut(id,tag){
 	try{
 		var preTag = " <rShift + "+tag+"> ";
 		preTag = encodeURI(preTag);
-		GtE(id+"C").innerHTML += preTag;
+//		GtE(id+"C").innerHTML += preTag;
+		GtE(id+"C").insertAdjacentHTML("beforeend", preTag);
 		eval("ResShortCutsOn."+id+"C = '"+tag+"';");
 		eval("ResShortCutsOnOldTags."+id+" = '"+preTag+"';");
 	}
@@ -2971,7 +3136,8 @@ function ElObjAddShortCut(id,tag){
 		try{
 			var preTag = "\u00A0\u00A0(rShift+"+tag+") \u00A0";
 			preTag = GWriteConvert(preTag);
-			GtE(id).innerHTML += preTag;		
+//			GtE(id).innerHTML += preTag;
+			GtE(id).insertAdjacentHTML("beforeend", preTag);
 			eval("ResShortCutsOn."+id+" = '"+tag+"';");
 			eval("ResShortCutsOnOldTags."+id+" = '"+preTag+"';");
 		}
@@ -2979,6 +3145,45 @@ function ElObjAddShortCut(id,tag){
 		}
 	}
 	return "done";
+}
+
+function SetNewMenu(Aid, Bid){
+    MenuAlign(Aid, GtE(Bid).parentNode.id, false);
+ //   var m = window.setTimeout(function fc(){
+  //      MenuAlign(Aid, GtE(Bid).parentNode.id, false);
+  //  }, 2000, Aid, Bid);
+}
+
+function CloseMenu(mId, wId){
+//    SearchMenu(mId, wId);
+    for (var i in MenusTree){
+        for (var j in MenusTree[i])
+            SearchMenu(j, i);
+    }
+    HideMenu();
+}
+
+function SetMenuAutoClose(el1, el2, el3, mId, bId, wId){
+    document.addEventListener('click', function fn(e){
+        var rem = false;
+        try{
+    //        if (!el || !GtE(el))
+     //           rem = true;
+            if ((!document.getElementById(el1).contains(e.target) && !document.getElementById(el2).contains(e.target)) || document.getElementById(el3).contains(e.target)){
+                rem = true;
+            }
+        }catch(erd){
+     //       rem = true;
+        }
+        if (rem){
+            for (var i in MenusTree){
+                for (var j in MenusTree[i])
+                    SearchMenu(j, i);
+            }
+            HideMenu();
+            document.removeEventListener('click', fn, e);
+        }
+    });
 }
 
 function ElObjRemoveShortCut(id){
@@ -3056,33 +3261,49 @@ function MenuAlign(StartId, MenuBoxId, IsMain){
 			*/
 			
 			var MP = MenuAlignPlacement(StartId, MenuBoxId, IconDesktops[0].Id, IsMain);
-			if (MP[0] == null || MP[1] == null){
+			if (MP[0] == null || MP[1] == null || MP[2] == null){
 				if (IsMain){
 					GtE(MenuBoxId).style.marginLeft = (GtE(StartId).getBoundingClientRect().left)+"px";
 					GtE(MenuBoxId).style.marginTop = "0px";
 				}
 				else{
 					GtE(MenuBoxId).style.marginLeft = (GtE(StartId).getBoundingClientRect().left+GtE(StartId).offsetWidth)+"px";
-					GtE(MenuBoxId).style.marginTop = (GtE(StartId).getBoundingClientRect().top)+"px";					
+					GtE(MenuBoxId).style.marginTop = (GtE(StartId).getBoundingClientRect().top)+"px";
 				}
 			}
 			else{
-				GtE(MenuBoxId).style.marginLeft = MP[0]+"px";
-				GtE(MenuBoxId).style.marginTop = MP[1]+"px";				
+                GtE(MenuBoxId).style.marginLeft = MP[0]+"px";
+                GtE(MenuBoxId).style.marginTop = MP[1]+"px";
+                if (IsMain){
+
+                }
+                else{
+                    if (MP[2]){
+
+                    }
+                    else{
+                        GtE(MenuBoxId).style.marginTop = "-"+(GtE(StartId).parentNode.clientHeight-GtE(StartId).offsetTop)+"px";
+                        GtE(MenuBoxId).style.left = (GtE(StartId).getBoundingClientRect().left-GtE(MenuBoxId).parentNode.getBoundingClientRect().left+GtE(StartId).getBoundingClientRect().width)+"px";
+
+                        //this is just for style...if you want to see the arrow fully, set to 0px
+                        GtE(MenuBoxId).style.marginLeft = "-10px";
+                    }
+                }
 			}
 		}
 	}catch(erd){}
 }
 
 function MenuAlignPlacement(menu, menubox, desktop, ismain){
-	var R = [null, null];
+	var R = [null, null, null];
+    var OverDesktop = false;
 	try{
 		var MT = GtE(menu).getBoundingClientRect().top;
 		var ML = GtE(menu).getBoundingClientRect().left;
 		var MH = GtE(menu).offsetHeight;
 		var MW = GtE(menu).offsetWidth;
 		
-		var MCL = GtE(menu).offsetLeft; 
+		var MCL = GtE(menu).offsetLeft;
 		var MCT = GtE(menu).offsetTop;
 		
 		//calculate addition for window title size
@@ -3125,7 +3346,7 @@ function MenuAlignPlacement(menu, menubox, desktop, ismain){
 			SW = MW;
 			TH = MH;
 			TW = 0;
-		}	
+		}
 		
 		//do some size adjustments
 		DH = DH-Math.min(DH/10,WPercentToWPixel(4,"height"));
@@ -3157,6 +3378,7 @@ function MenuAlignPlacement(menu, menubox, desktop, ismain){
 				else
 					OT = OT+TH;
 			}
+            OverDesktop = true;
 		}
 		else
 			OL = OL+SW;
@@ -3183,16 +3405,22 @@ function MenuAlignPlacement(menu, menubox, desktop, ismain){
 				else
 					OL = OL+TW;
 			}
+            OverDesktop = true;
 		}
 		else
 			OT = OT;
 		
-		if (OL+BW > DL+DW || OL < DL)
+		if (OL+BW > DL+DW || OL < DL){
 			OL = DL;
-		if (OT+BH > DT+DH || OT < DT)
+            OverDesktop = true;
+        }
+		if (OT+BH > DT+DH || OT < DT){
 			OT = DT;
+            OverDesktop = true;
+        }
 		R[0] = OL-ML+MCL;
 		R[1] = OT-MT+MCT;
+		R[2] = OverDesktop;
 	}catch(erd){}
 	return R;
 }
@@ -3217,34 +3445,41 @@ function closeMenus(){
 function openMenusCan(){
 	if (!MenuCan)
 		return false;
-	for (var i in MenusTree){
-		try{
-			GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.display = "block";
-		}catch(erd){}
-	}
+    for (var a in MenusTree){
+        for (var i in a){
+            try{
+                GtE(a[i].slice(0,parseInt(a[i].length,10)-1)).style.display = "block";
+            }catch(erd){}
+        }
+    }
 	return "done";
 }
 function closeMenusCan(){
 	if (!MenuCan)
 		return false;
 	//for (var i in MenusTree){
-	for (var i = 0; i < MenusTree.length; i++){
-		var founded = false;
-		for (var j in MainMenus){
-			try{
-				if (i == j){
-					founded = true;
-					GtE(i).style.color = MenuNextCloseColorMain;
-					break;
-				}
-			}catch(erd){}
-		}
-		if (!founded){
-			GtE(i).style.color = MenuNextCloseColor;
-			GtE(i).style.backgroundColor = GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.backgroundColor;
-		}
-		GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.display = "none";
-	}
+    for (var a in MenusTree){
+//        for (var i = 0; i < MenusTree.length; i++){
+        for (var i = 0; i < a.length; i++){
+            var founded = false;
+            for (var j in MainMenus){
+                try{
+                    if (i == j){
+                        founded = true;
+                        GtE(i).style.color = MenuNextCloseColorMain;
+                        break;
+                    }
+                }catch(erd){}
+            }
+            if (!founded){
+                GtE(i).style.color = MenuNextCloseColor;
+                GtE(i).style.backgroundColor = GtE(a[i].slice(0,parseInt(a[i].length,10)-1)).style.backgroundColor;
+//                GtE(i).style.backgroundColor = GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.backgroundColor;
+            }
+            GtE(a[i].slice(0,parseInt(a[i].length,10)-1)).style.display = "none";
+//            GtE(MenusTree[i].slice(0,parseInt(MenusTree[i].length,10)-1)).style.display = "none";
+        }
+    }
 	return "done";
 }
 
@@ -3255,83 +3490,97 @@ function MenusAlt(){
 			ToAlt.push(ObjAlt[q]);
 	}*/
 	var AddAlt = [];
-	for (var v in MainMenus){
-		try{
-			ToAlt.push(v);
-		}catch(erd){}
-	}
-	for (var w in MainMenus){
-		try{
-			var BoxM = MainMenus[w];
-			BoxM = BoxM.slice(0,parseInt(BoxM.length,10)-1);
-			if (GtE(BoxM).style.display != "none"){
-				ToAlt.push(w);
-				var AddM = GtE(MainMenus[w]).childNodes;
-				for (var q = 0; q < AddM.length; q++){
-					if (GtE(AddM[q].id).style.display != "none"){
-						var NoAltM = false;
-						//for (var s in MenusTreeAlt){
-						for (var s = 0; s < MenusTreeAlt.length; s++){
-							if (AddM[q].id == s){
-								NoAltM = true;
-								break;
-							}
-						}
-						if (NoAltM)
-							AddAlt.push(AddM[q].id);
-						else{
-						//	for (var g in MenusTreeAlt){
-							for (var g = 0; q < MenusTreeAlt.length; q++){
-								if (AddM[q].id+"C" == g){
-									NoAltM = true;
-									break;
-								}
-							}
-							if (NoAltM)
-								AddAlt.push(AddM[q].id+"C");
-						}
-					}
-				}
-			}
-		}catch(erd){}
-	}
-	for (var i in MenusTreeAlt){
-		try{
-			var Box = MenusTreeAlt[i];
-			if (Box != "none"){
-				Box = Box.slice(0,parseInt(Box.length,10)-1);
-				if (GtE(Box).style.display != "none"){
-					ToAlt.push(i);
-					var Add = GtE(MenusTreeAlt[i]).childNodes;
-					for (var j = 0; j < Add.length; j++){
-						if (GtE(Add[j].id).style.display != "none"){
-							var NoAlt = false;
-				//			for (var d in MenusTreeAlt){
-							for (var d = 0; d < MenusTreeAlt.length; d++){
-								if (Add[j].id == d){
-									NoAlt = true;
-									break;
-								}
-							}
-							if (NoAlt)
-								AddAlt.push(Add[j].id);
-							else{
-						//		for (var c in MenusTreeAlt){
-								for (var c = 0; c < MenusTreeAlt.length; c++){
-									if (Add[j].id+"C" == c){
-										NoAlt = true;
-										break;
-									}
-								}
-								if (NoAlt)
-									AddAlt.push(Add[j].id+"C");
-							}
-						}
-					}
-				}
-			}
-		}catch(erd){}
-	}
+    for (var a in MainMenus){
+        for (var v in MainMenus[a]){
+            try{
+                ToAlt.push(v);
+            }catch(erd){}
+        }
+    }
+    for (var a in MainMenus){
+        for (var w in MainMenus[a]){
+            try{
+                var BoxM = MainMenus[a][w];
+                BoxM = BoxM.slice(0,parseInt(BoxM.length,10)-1);
+                if (GtE(BoxM).style.display != "none"){
+                    ToAlt.push(w);
+                    var AddM = GtE(MainMenus[a][w]).childNodes;
+                    for (var q = 0; q < AddM.length; q++){
+                        if (GtE(AddM[q].id).style.display != "none"){
+                            var NoAltM = false;
+                            //for (var s in MenusTreeAlt){
+                            for (var b in MenusTreeAlt){
+                                for (var s = 0; s < MenusTreeAlt[b].length; s++){
+                                    if (AddM[q].id == s){
+                                        NoAltM = true;
+                                        break;
+                                    }
+                                }
+                                if (NoAltM)
+                                    break;
+                            }
+                            if (NoAltM)
+                                AddAlt.push(AddM[q].id);
+                            else{
+                            //	for (var g in MenusTreeAlt){
+                                for (var b in MenusTreeAlt){
+                                    for (var g = 0; q < MenusTreeAlt[b].length; q++){
+                                        if (AddM[q].id+"C" == g){
+                                            NoAltM = true;
+                                            break;
+                                        }
+                                    }
+                                    if (NoAltM)
+                                        break;
+                                }
+                                if (NoAltM)
+                                    AddAlt.push(AddM[q].id+"C");
+                            }
+                        }
+                    }
+                }
+            }catch(erd){}
+        }
+    }
+    for (var a in MenusTreeAlt){
+        for (var i in MenusTreeAlt[a]){
+            try{
+                var Box = MenusTreeAlt[a][i];
+                if (Box != "none"){
+                    Box = Box.slice(0,parseInt(Box.length,10)-1);
+                    if (GtE(Box).style.display != "none"){
+                        ToAlt.push(i);
+                        var Add = GtE(MenusTreeAlt[a][i]).childNodes;
+                        for (var j = 0; j < Add.length; j++){
+                            if (GtE(Add[j].id).style.display != "none"){
+                                var NoAlt = false;
+                    //			for (var d in MenusTreeAlt){
+                                for (var d = 0; d < MenusTreeAlt[a].length; d++){
+                                    if (Add[j].id == d){
+                                        NoAlt = true;
+                                        break;
+                                    }
+                                }
+                                if (NoAlt)
+                                    AddAlt.push(Add[j].id);
+                                else{
+                            //		for (var c in MenusTreeAlt){
+                                    for (var c = 0; c < MenusTreeAlt[a].length; c++){
+                                        if (Add[j].id+"C" == c){
+                                            NoAlt = true;
+                                            break;
+                                        }
+                                    }
+                                    if (NoAlt)
+                                        AddAlt.push(Add[j].id+"C");
+                                }
+                            }
+                        }
+                    }
+                }
+            }catch(erd){}
+        }
+    }
 	var res = ToAlt.concat(AddAlt,Alt);
 	ResAlt = [];
 	ResAltId = [];
@@ -3369,7 +3618,7 @@ function MenusAlt(){
 					founded = true;
 					Chars.splice(pos,1);
 					GtE(ResAltId[i]).innerHTML =  GWriteConvert(ResAlt[i]).replace(ResAlt[i][j],"<span style='text-decoration:underline'>"+ResAlt[i][j]+"</span>");
-					eval("ResAltOn."+ResAltId[i]+" = '"+ResAlt[i][j]+"';");						
+					eval("ResAltOn."+ResAltId[i]+" = '"+ResAlt[i][j]+"';");
 					break;
 				}
 			}
@@ -3382,19 +3631,19 @@ function MenusAlt(){
 						for (var r = 0; r < CharsNext.length;r++)
 							AddNextChars.push(CharsNext[r]);
 					}
-					GtE(ResAltId[i]).innerHTML =  GWriteConvert(ResAlt[i])+" {<span style='text-decoration:underline'>"+CharsNext[0]+"</span>}";
-					eval("ResAltOn."+ResAltId[i]+" = '"+CharsNext[0]+"';");					
+					GtE(ResAltId[i]).innerHTML = GWriteConvert(ResAlt[i])+" {<span style='text-decoration:underline'>"+CharsNext[0]+"</span>}";
+					eval("ResAltOn."+ResAltId[i]+" = '"+CharsNext[0]+"';");
 					CharsNext.splice(0,1);
 				}
 				else{
-					GtE(ResAltId[i]).innerHTML =  GWriteConvert(ResAlt[i])+" {<span style='text-decoration:underline'>"+Chars[0]+"</span>}";
+					GtE(ResAltId[i]).innerHTML = GWriteConvert(ResAlt[i])+" {<span style='text-decoration:underline'>"+Chars[0]+"</span>}";
 					eval("ResAltOn."+ResAltId[i]+" = '"+Chars[0]+"';");	
-					Chars.splice(0,1);			
+					Chars.splice(0,1);
 				}
 			}
 		}
 		else
-			GtE(ResAltId[i]).innerHTML =  GWriteConvert(ResAlt[i]);
+			GtE(ResAltId[i]).innerHTML = GWriteConvert(ResAlt[i]);
 	}
 	return "done";
 }
@@ -3438,7 +3687,7 @@ function WindowSystemPos(wSelf){
 			if (!WSJUMP)
 				WSPY = 0;
 			else
-				WSPY = WSPYS;		
+				WSPY = WSPYS;
 		}
 		if (WSJUMP)
 			WSJUMP = false;
@@ -3462,10 +3711,21 @@ class Window extends ObjectWork{
 		if (name)
 			this.Name = name;
 		this.Grid = new Grid(ParentElementId);
+
 		this.Grid.create();
 		this.Id = "e"+avc();
-		GtE(this.Grid.Id).innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';
-		var self = this;
+        this.ParentId = ParentElementId;
+        
+        //register our window in menu handlers
+        eval("MainMenus."+this.Id+" = {};");
+        eval("MenusTree."+this.Id+" = {};");
+        eval("MenusTreeL."+this.Id+" = {};");
+        eval("MenuSwitchs."+this.Id+" = {};");
+        eval("MenusTreeAlt."+this.Id+" = {};");
+
+//		GtE(this.Grid.Id).innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';
+		GtE(this.Grid.Id).insertAdjacentHTML('beforeend', '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>');
+        var self = this;
 		this.WinHand = new ElObj(this.Grid,this.Grid,true);
 		this.WinHand.Edit.cssClass("WinHand");
 		this.WinMenuDataArea = new Element(this,this,true);
@@ -3478,7 +3738,8 @@ class Window extends ObjectWork{
 		this.WindowIconIn = new ElObj(this.Title.Self,this,true);
 		this.TitleButtons = new ElObj(this.TitleBar.Self,this,true);
 		this.TitleMenus = new ElObj(this.TitleBar.Self,this,true);
-		this.StatusBar = new ElObj(this,this,true);
+//		this.StatusBar = new ElObj(this,this,true);
+		this.StatusBar = new Element(this,this,true);
 		this.Data = new Element(this,this,true);
 		this.Data.Edit.setCode("closeMenusCan();");
 		this.CanvasWritter =  new Element(this.Data.Self,this,true);
@@ -3547,7 +3808,7 @@ class Window extends ObjectWork{
 		this.TitleButtons.Edit.setCodeAdd("SR('"+this.Id+"','resizeDefElemClass','window');");
 		this.TitleMenus.Edit.setCodeAdd("SR('"+this.Id+"','resizeDefElemClass','window');");
 		this.ResizeObj = SR(this.Id,"resizeDefElemClass","window");
-		
+
 		//work
 		this.TitleInner.Edit.writeIn(this.Name);
 		
@@ -3623,19 +3884,19 @@ class Window extends ObjectWork{
 			}
 			else if (this.TitleMenusSet){
 				GtE(this.Title.Id).style.width = "56%";
-				GtE(this.Title.Id).style.right = "0.67vw";	
+				GtE(this.Title.Id).style.right = "0.67vw";
 				if (!call)
 					this.setTitleMenus(true, true);
 			}
 			else{
 				GtE(this.Title.Id).style.width = "calc(100% - 0.67vw)";
-				GtE(this.Title.Id).style.right = "0.67vw";				
-			}	
+				GtE(this.Title.Id).style.right = "0.67vw";
+			}
 			this.setTitleBar(true, false);
 		}
 		else
 			GtE(this.Title.Id).style.visibility = "hidden";
-	}	
+	}
 	setTitleMenus(bool, call){
 		this.TitleMenusSet = bool;
 		if (bool){
@@ -3663,7 +3924,7 @@ class Window extends ObjectWork{
 		}
 		else
 			GtE(this.TitleMenus.Id).style.visibility = "hidden";
-	}		
+	}
 	setTitleButtons(bool, call){
 		this.TitleButtonsSet = bool;
 		if (bool){
@@ -3676,7 +3937,7 @@ class Window extends ObjectWork{
 		}
 		else
 			GtE(this.TitleButtons.Id).style.visibility = "hidden";
-	}	
+	}
 	setTitleBar(bool, call){
 		if (bool)
 			GtE(this.TitleBar.Id).style.visibility = "visible";
@@ -3685,7 +3946,7 @@ class Window extends ObjectWork{
 		this.TitleBarSet = bool;
 		if (!call)
 			this.setDataArea(true);
-	}	
+	}
 	setStatusBar(bool, call){
 		if (bool)
 			GtE(this.StatusBar.Id).style.visibility = "visible";
@@ -3705,7 +3966,7 @@ class Window extends ObjectWork{
 		this.Data.Edit.removeCssClass("WindowDataNoStatusBar");
 		this.Data.Edit.removeCssClass("WindowDataTitleBarStatusBar");
 		this.Data.Edit.removeCssClass("WindowDataNoTitleBar");
-		this.Data.Edit.removeCssClass("WindowDataNoTitleBarNoStatusBar");		
+		this.Data.Edit.removeCssClass("WindowDataNoTitleBarNoStatusBar");
 	}
 	setDataArea(call){
 		GtE(this.Data.Id).style.visibility = "visible";
@@ -3744,11 +4005,11 @@ class Window extends ObjectWork{
 		}
 		else{
 //			GtE(this.Data.Id).style.height = "calc(100% - 1.2vw)";
-	//		GtE(this.Data.Id).style.top = "0.6vw";		
+	//		GtE(this.Data.Id).style.top = "0.6vw";
 			this.Data.Edit.addCssClass("WindowDataNoTitleBarNoStatusBar");
 			this.Data.Edit.removeCssClass("WindowDataNoStatusBar");
 			this.Data.Edit.removeCssClass("WindowDataTitleBarStatusBar");
-			this.Data.Edit.removeCssClass("WindowDataNoTitleBar");	
+			this.Data.Edit.removeCssClass("WindowDataNoTitleBar");
 		}	
 	}
 	newTitleButton(name){
@@ -3795,7 +4056,7 @@ class Window extends ObjectWork{
 			this.CloseTitle.Edit.show(true);
 		else
 			this.CloseTitle.Edit.hide(true);
-	}	
+	}
 	setResizeObj(bool){
 		if (bool){
 			eval("WindowBuffer."+this.Id+".stat = true;");
@@ -3820,7 +4081,7 @@ class Window extends ObjectWork{
 		if (!name)
 			return undefined;
 //		eval("this.Windows."+name+" = new Window('"+name+"',this.Data.Id);");
-		eval("this.Windows."+name+" = new Window('"+name+"',this.ParentElementId.Id);");
+		eval("this.Windows."+name+" = new Window('"+name+"',this.ParentId);");
 		if (UseNoObjClass)
 			eval("this."+name+" = this.Windows."+name+";");
 		eval("this.Obj."+name+" = this.Windows."+name+";");
@@ -3846,21 +4107,21 @@ class Window extends ObjectWork{
 		if (!name)
 			return undefined;
 //		eval("this.Windows."+name+" = new Window('"+name+"',this.Data.Id);");
-		eval("this.Windows."+name+" = new Window('"+name+"',this.Data.Id);");
+		eval("this.Windows."+name+" = new Window('"+name+"',this.ParentId);");
 		//resizeAll(percentWidth,percentHeight,percentLeft,percentTop,percentRight,percentBotas)
 		//eval("this.Windows."+name+".Edit.resizeAll(40,40,100,100,100,100);");
 	/*	GtE(eval("this.Windows."+name+".Id")).style.top = "30%";
 		GtE(eval("this.Windows."+name+".Id")).style.left = "20%";
 		GtE(eval("this.Windows."+name+".Id")).style.width = "60%";
 		GtE(eval("this.Windows."+name+".Id")).style.height = "40%";*/
-		GtE(eval("this.Windows."+name+".Id")).style.top = "15%";
-		GtE(eval("this.Windows."+name+".Id")).style.left = "20%";
-		GtE(eval("this.Windows."+name+".Id")).style.width = "60%";
-		GtE(eval("this.Windows."+name+".Id")).style.height = "60%";	
-			
-		eval("this.Windows."+name+".setMinimizeInTitle(false);");		
-		eval("this.Windows."+name+".setMaximizeInTitle(false);");	
-		eval("this.Windows."+name+".CloseTitle.Edit.setCode('ElWin(\""+this.Id+"\",\"get\")[0][0].Windows."+name+".Edit.hide(true);');");	
+//		GtE(eval("this.Windows."+name+".Id")).style.top = "25vh";
+//		GtE(eval("this.Windows."+name+".Id")).style.left = "30vw";
+		GtE(eval("this.Windows."+name+".Id")).style.width = "40vw";
+		GtE(eval("this.Windows."+name+".Id")).style.height = "40vh";
+
+		eval("this.Windows."+name+".setMinimizeInTitle(false);");
+		eval("this.Windows."+name+".setMaximizeInTitle(false);");
+		eval("this.Windows."+name+".CloseTitle.Edit.setCode('ElWin(\""+this.Id+"\",\"get\")[0][0].Windows."+name+".Edit.hide(true);');");
 		if (UseNoObjClass)
 			eval("this."+name+" = this.Windows."+name+";");
 		eval("this.Obj."+name+" = this.Windows."+name+";");
@@ -3883,7 +4144,7 @@ class Window extends ObjectWork{
 		if (!name)
 			return undefined;
 		eval("this.Menus."+name+" = new Menu('"+name+"',this.TitleMenus.Self,this,0,true);");
-		eval("MainMenus."+eval("this.Menus."+name+".Id")+" = '"+eval("this.Menus."+name+".Box.Id")+"';");
+		eval("MainMenus."+this.Id+"."+eval("this.Menus."+name+".Id")+" = '"+eval("this.Menus."+name+".Box.Id")+"';");
 		if (UseNoObjClass)
 			eval("this."+name+" = this.Menus."+name+";");
 		eval("this.Obj."+name+" = this.Menus."+name+";");
@@ -3899,13 +4160,13 @@ class Window extends ObjectWork{
 		eval("this.Menus."+name+".Edit.writeIn(this.Menus."+name+".Name);");
 		eval("this.Menus."+name+".Edit.setCode('ToogleMenu(\""+eval("this.Menus."+name+".Id")+"\")');");
 		eval("this.Menus."+name+".Edit.onClick('BtnEval(\""+eval("this.Menus."+name+".Id")+"\");');");
-		eval("this.Menus."+name+".newMenuItem(name){}")*/		
+		eval("this.Menus."+name+".newMenuItem(name){}")*/
 	}
 	removeMenu(name){
 		if (!name)
 			return undefined;
 		try{
-			eval("delete MainMenus."+eval("this.Menus."+name+".Id")+";");
+			eval("delete MainMenus."+this.Id+"."+eval("this.Menus."+name+".Id")+";");
 		}catch(erd){}
 		try{
 			eval("this.Menus."+name+".destroy();");
@@ -3935,7 +4196,7 @@ class Window extends ObjectWork{
 	}
 	destroyWindow(){
 		try{
-			for(var x in this.Obj){
+            for(var x in this.Obj){
 				try{
 					x.destroy();
 				}catch(erd){}
@@ -3967,7 +4228,7 @@ class Window extends ObjectWork{
 		}catch(erd){}
 		try{
 			eval("delete WindowBuffer."+this.Id+";");
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			this.CloseTitle.destroy();
 			this.CloseTitle = null;
@@ -3979,15 +4240,15 @@ class Window extends ObjectWork{
 		try{
 			this.MinimizeTitle.destroy();
 			this.MinimizeTitle = null;
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			this.WinHand.destroy();
 			this.WinHand = null;
-		}catch(erd){}	
+		}catch(erd){}
 		try{
 			this.TitleBar.destroy();
 			this.TitleBar = null;
-		}catch(erd){}	
+		}catch(erd){}
 		try{
 			this.TitleInner.destroy();
 			this.TitleInner = null;
@@ -3995,7 +4256,7 @@ class Window extends ObjectWork{
 		try{
 			this.WindowIconIn.destroy();
 			this.WindowIconIn = null;
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			this.Title.destroy();
 			this.Title = null;
@@ -4011,7 +4272,7 @@ class Window extends ObjectWork{
 		try{
 			this.StatusBar.destroy();
 			this.StatusBar = null;
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			this.Data.destroy();
 			this.Data = null;
@@ -4023,14 +4284,18 @@ class Window extends ObjectWork{
 		try{
 			this.CanvasArrea.destroy();
 			this.CanvasArrea = null;
-		}catch(erd){}		
+		}catch(erd){}
 		try{
 			this.Grid.destroy();
 			this.Grid = null;
-		}catch(erd){}			
-		try{
-			eval("delete MenusTree."+this.Id+";");
 		}catch(erd){}
+        try{
+            eval("delete MainMenus."+this.Id+";");
+            eval("delete MenusTree."+this.Id+";");
+            eval("delete MenusTreeL."+this.Id+";");
+            eval("delete MenuSwitchs."+this.Id+";");
+            eval("delete MenusTreeAlt."+this.Id+";");
+        }catch(erd){}
 		try{
 			super.destroy();
 		}catch(erd){}
@@ -4089,7 +4354,7 @@ function TBARMax(id){
 					else{
 						FindTitleButtonMax = FindTitleButtons[j].getElementsByClassName("WindowTitleButtonRestoreNew");
 						if (FindTitleButtonMax.length > 0)
-							found = true;											
+							found = true;
 					}
 					if (found){
 						ElWin(WinId.id,'maximize');
@@ -4105,16 +4370,20 @@ function TBARMax(id){
 	}
 }
 
-function ToogleMenu(id,boxId){
+function ToogleMenu(id,boxId, winId){
 	if (!id)
 		return undefined;
 	if (!boxId)
+		return undefined;
+	if (!winId)
 		return undefined;
 	ToDisplay = false;
 	boxId = boxId.slice(0,parseInt(boxId.length,10)-1);
 	var display = GtE(boxId).style.display;
 	var Main = false;
-	for (var e in MainMenus){
+    var MTree = eval("MainMenus."+winId);
+    var MTreeL = eval("MenusTreeL."+winId);
+	for (var e in MTree){
 		try{
 			if (e.trim() == id.trim()){
 				Main = true;
@@ -4129,43 +4398,45 @@ function ToogleMenu(id,boxId){
 		var MenuInLevel = [];
 		var MenuL = 0;
 		ToDeleteMenu = [];
-		for (var f in MenusTreeL){
+		for (var f in MTreeL){
 			try{
 				if (f.trim() == id.trim()){
-					MenuL = MenusTreeL[f];
+					MenuL = MTreeL[f];
 					break;
 				}
 			}catch(erd){}
 		}
-		for (var n in MenusTreeL){
+		for (var n in MTreeL){
 			try{
-				if (MenusTreeL[n] == MenuL)
+				if (MTreeL[n] == MenuL)
 					MenuInLevel.push(n);
 			}catch(erd){}
 		}
 		for (var i = 0; i < MenuInLevel.length;i++)
-			SearchMenu(MenuInLevel[i]);
+			SearchMenu(MenuInLevel[i], winId);
 		ToDeleteMenuTimeout = window.setTimeout(HideMenu,130);
 	}
 	else{
 		ToDeleteMenu = [];
-		SearchMenu(id);
+		SearchMenu(id, winId);
 		ToDeleteMenuTimeout = window.setTimeout(HideMenu,130);
 	}
 	return "done";
 }
 
-function SearchMenu(id){
+function SearchMenu(id, winId){
 	if (!id)
 		return undefined;
-	var Box = eval("MenusTree."+id);
+	if (!winId)
+		return undefined;
+	var Box = eval("MenusTree."+winId+"."+id);
 	if (Box){
 		var boxId = Box;
 		boxId = boxId.slice(0,parseInt(boxId.length,10)-1);
 		ToDeleteMenu.push(boxId);
 		var Childs = GtE(Box).childNodes;
 		for (var i = 0; i < Childs.length;i++)
-			SearchMenu(Childs[i].id);
+			SearchMenu(Childs[i].id, winId);
 	}
 }
 
@@ -4173,27 +4444,31 @@ function HideMenu(){
 	var Main = false;
 	for (var i = 0; i < ToDeleteMenu.length;i++){
 		var main = false;
-		for (var e in MainMenus){
-			try{
-				if (MainMenus[e].trim() == ToDeleteMenu[i].trim()+"D"){
-					Main = true;
-					main = true;
-					break;
-				}
-			}catch(erd){}
-		}
+        for (var a in MainMenus){
+            for (var e in MainMenus[a]){
+                try{
+                    if (MainMenus[a][e].trim() == ToDeleteMenu[i].trim()+"D"){
+                        Main = true;
+                        main = true;
+                        break;
+                    }
+                }catch(erd){}
+            }
+        }
 		GtE(ToDeleteMenu[i]).style.display = "none";
-		for (var f in MenusTree){
-			try{
-				if (MenusTree[f].trim() == ToDeleteMenu[i].trim()+"D"){
-					if (!main)
-						GtE(f).style.color = MenuNextCloseColor;
-					else
-						GtE(f).style.color = MenuNextCloseColorMain;
-					break;
-				}
-			}catch(erd){}
-		}
+        for (var a in MenusTree){
+            for (var f in MenusTree[a]){
+                try{
+                    if (MenusTree[a][f].trim() == ToDeleteMenu[i].trim()+"D"){
+                        if (!main)
+                            GtE(f).style.color = MenuNextCloseColor;
+                        else
+                            GtE(f).style.color = MenuNextCloseColorMain;
+                        break;
+                    }
+                }catch(erd){}
+            }
+        }
 	}
 	ToDeleteMenu = new Array();
 	if (ToDisplay){
@@ -4230,7 +4505,8 @@ class Grid extends ObjectWork{
 	create(){
 		GridPercentWidth = this.WidthNumber;
 		GridPercentHeight = this.HeightNumber;
-		this.Pel.innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';
+        this.Pel.insertAdjacentHTML('beforeend', '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>');
+//		this.Pel.innerHTML += '<div id="'+this.Id+'" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';  */
 		var self = this;
 		GtE(this.Id).onclick = function(evt){eval("var setup="+self.Edit.getObject("code")+"(evt,this,self)")};
 		if (this.Pel != document.body){
@@ -4711,7 +4987,8 @@ class SysGUI extends ObjectWork{
 		this.Grid = new Grid(ParentElementId);
 		this.Grid.create();
 		this.Id = "e"+avc();
-		GtE(this.Grid.Id).innerHTML += '<div id="'+this.Id+'" class="SystemArea" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';
+        GtE(this.Grid.Id).insertAdjacentHTML('beforeend', '<div id="'+this.Id+'" class="SystemArea" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>');
+//		GtE(this.Grid.Id).innerHTML += '<div id="'+this.Id+'" class="SystemArea" data-inf="ObjectWorkData.'+this.ObjectWorkName+'"></div>';
 		var self = this;
 		this.InstancesObj = {};
 		this.edit();
@@ -4720,7 +4997,7 @@ class SysGUI extends ObjectWork{
 	newInstance(name){
 		eval("this.InstancesObj."+name+" = new Desktop('"+name+"',this,this,false);");
 		if (UseNoObjClass)
-			eval("this."+name+" = this.InstancesObj."+name+";");		
+			eval("this."+name+" = this.InstancesObj."+name+";");
 	}
 	removeInstance(name){
 		try{
@@ -5007,7 +5284,7 @@ class ShellWin extends Window{
 			if (WindowProcess[i][0].Id == this.Id){
 				setWinProcess = false;
 				break;
-			}		
+			}
 		}
 		if (setWinProcess){//WindowProcess structure id,minimized,maximized,closed, id popisovače system tray,titulek okna,id resize objektu, src ikony okna
 			WindowProcess.push([this,true,false,false,"none",this.name,this.ResizeObj,this.winIconSrc,true]);
@@ -5042,7 +5319,7 @@ class ShellWin extends Window{
 											else{
 												FindTitleButtonMax = WinId.getElementsByClassName("WindowTitleButtonRestoreNew");
 												if (FindTitleButtonMax.length > 0)
-													found = true;											
+													found = true;
 											}
 											if (found){
 												ElWin(WinId.id,'maximize');
@@ -5087,6 +5364,26 @@ class ShellWin extends Window{
 		}
 		ElWin(this.Id,"minimizenoset");
 		ElWin(this.Id,"show");
+	}
+	registerWindow(){
+		for (var i = 0; i < WindowProcess.length;i++){
+			if (WindowProcess[i][0].Id == this.Id){
+				WindowProcess[i][3] = false;
+				WindowProcess[i][1] = false;
+				break;
+			}
+		}
+		ElWin(this.Id,"minimizenoset");
+		ElWin(this.Id,"show");
+        this.RegisterTimer = window.setTimeout(function(e){
+            for (var i = 0; i < WindowProcess.length;i++){
+                if (WindowProcess[i][0].Id == e){
+                    WindowProcess[i][3] = true;
+                    break;
+                }
+            }
+            ElWin(e,"close");
+        }, 100, this.Id);
 	}
 	minimizeWindow(){
 		for (var i = 0; i < WindowProcess.length;i++){
@@ -5169,6 +5466,96 @@ class ShellWin extends Window{
 			}
 		}		*/
 		ElWin(this.Id,"activate");
+	}
+	newAlert(name, title, winIconSrc, showImageBool, data){
+		if (!name)
+			return undefined;
+		if (!title)
+			title = name;
+        if (!winIconSrc)
+            winIconSrc = this.winIconSrc;
+		eval("this.Windows."+name+" = new Window('"+name+"',this.ParentId);");
+		GtE(eval("this.Windows."+name+".Id")).style.top = "25vh";
+		GtE(eval("this.Windows."+name+".Id")).style.left = "30vw";
+		GtE(eval("this.Windows."+name+".Id")).style.width = "40vw";
+		GtE(eval("this.Windows."+name+".Id")).style.height = "40vh";
+			
+		eval("this.Windows."+name+".setMinimizeInTitle(false);");
+		eval("this.Windows."+name+".setMaximizeInTitle(false);");
+		eval("this.Windows."+name+".CloseTitle.Edit.setCode('ElWin(\""+this.Id+"\",\"get\")[0][0].Windows."+name+".Edit.hide(true);');");
+        
+        eval("this.Windows."+name+".setTitleSize(true, false);");
+        eval("this.Windows."+name+".setStatusBar(false, false);");
+        eval("this.Windows."+name+".Data.newElement('First');");
+		GtE(eval("this.Windows."+name+".Data.Id")).style.overflow = "hidden";
+		GtE(eval("this.Windows."+name+".Data.Id")).style.backgroundColor = "#FFFFFF";
+        eval("this.Windows."+name+".Data.newElement('Second');");
+        eval("this.Windows."+name+".Data.Obj.Second.newButton('OK');");
+        eval("this.Windows."+name+".Data.Obj.Second.Obj.OK.Edit.setCode('ElWin(\""+this.Id+"\",\"get\")[0][0].Windows."+name+".Edit.hide(true);');");
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.width = "100%";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.height = "8.8vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.marginTop = "0%";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.borderTop = "0.2vh solid #000000";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.display = "flex";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Obj.OK.Id")).style.marginLeft = "30vw";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Obj.OK.Id")).style.marginTop = "2vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Obj.OK.Id")).style.height = "3vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Obj.OK.Id")).style.width = "8vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.Second.Id")).style.backgroundColor = "#AAAAAA";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Id")).style.width = "100%";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Id")).style.height = "calc(100% - 9vh)";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Id")).style.marginTop = "0%";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Id")).style.backgroundColor = "#FFFFFF";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Id")).style.color = "#000000";
+		var d = "ElWin('"+eval("this.Windows."+name+".Data.Id")+"','close');";
+		GtE(eval("this.Windows."+name+".Data.Id")).onkeydown = function(e){
+			if (e.keyCode == 13 || e.charCode == 13)
+				eval(d);
+		}
+
+		if (showImageBool){
+            eval("this.Windows."+name+".IconSource = [winIconSrc]");
+            var inIconSrc = winIconSrc.split("$");
+            if (inIconSrc.length != 3)
+                SetImage(eval("this.Windows."+name+".WindowIconIn.Id"),winIconSrc,0,false);
+            else{
+                SetImage(eval("this.Windows."+name+".WindowIconIn.Id"),inIconSrc[0],inIconSrc[1],eval(inIconSrc[2]));
+                eval("this.Windows."+name+".IconSource = [inIconSrc[0], inIconSrc[1], eval(inIconSrc[2])]");
+            }
+            eval("this.Windows."+name+".Data.Obj.First.newImage('image', '')");
+			if (eval("this.Windows."+name+".IconSource.length") == 3)
+				SetImage(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id"),eval("this.Windows."+name+".IconSource[0]"),eval("this.Windows."+name+".IconSource[1]"),eval("this.Windows."+name+".IconSource[2]"));
+			else
+				SetImage(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id"),eval("this.Windows."+name+".IconSource[0]"));
+			eval("this.Windows."+name+".Data.Obj.First.newElement('title')");
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id")).style.width = "12.5vh";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id")).style.height = "12.5vh";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id")).style.top = "7.75vh";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id")).style.left = "3vw";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.image.Id")).style.position = "absolute";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.left = "calc(12.5vh + 7vw)";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.width = "calc(100% - (12.5vh + 9vw))";
+		}
+		else{
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.left = "3vw";
+			GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.width = "calc(100% - 6vw)";
+		}
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.height = "20vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.top = "4vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.position = "absolute";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.fontSize = "2.75vh";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.display = "flex";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.alignItems = "center";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.justifyContent = "center";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.overflowY = "auto";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.overflowX = "hidden";
+		GtE(eval("this.Windows."+name+".Data.Obj.First.Obj.title.Id")).style.wordBreak = "break-all";
+        
+        eval("this.Windows."+name+".Data.Obj.First.Obj.title.Edit.writeIn(data)");
+        
+		if (UseNoObjClass)
+			eval("this."+name+" = this.Windows."+name+";");
+		eval("this.Obj."+name+" = this.Windows."+name+";");
 	}
 	newActiveDesktop(name,parentSelf){
 		eval("this.ActiveDesktops."+name+" = new Desktop(name,parentSelf,this,true);");
@@ -5560,7 +5947,8 @@ class DesktopMenu extends ElObj{
 			return undefined;
 		eval("this.Separators."+name+" = new ElObj(this.MenuArea.menuArrea,this.WindowSelf,false);");
 		DesktopBlinkMenuSwitch(true,20);
-		GtE(this.MenuArea.menuArrea.Id).innerHTML += "<div style='display: block; width: 100%; height: 0.5%; margin-bottom: 1%; margin-top: 1%; background-color: #444444;' id='"+eval("this.Separators."+name+".Id")+"'></div>";	
+        GtE(this.MenuArea.menuArrea.Id).insertAdjacentHTML("beforeend", "<div style='display: block; width: 100%; height: 0.5%; margin-bottom: 1%; margin-top: 1%; background-color: #444444;' id='"+eval("this.Separators."+name+".Id")+"'></div>");
+//		GtE(this.MenuArea.menuArrea.Id).innerHTML += "<div style='display: block; width: 100%; height: 0.5%; margin-bottom: 1%; margin-top: 1%; background-color: #444444;' id='"+eval("this.Separators."+name+".Id")+"'></div>";	
 	}
 	removeSeparator(name){
 		if (!name)
@@ -5571,7 +5959,7 @@ class DesktopMenu extends ElObj{
 		}catch(erd){};
 		try{
 			eval("delete this.Separators."+name+";");
-		}catch(erd){};		
+		}catch(erd){};
 	}
 	newItem(name,iconBool){
 		DesktopBlinkMenuSwitch(true,20);
@@ -5586,7 +5974,7 @@ class DesktopMenu extends ElObj{
 		}catch(erd){};
 		try{
 			eval("delete this.Items."+name+";");
-		}catch(erd){};		
+		}catch(erd){};
 	}
 	destroyDesktopMenu(){
 		//desktop menu cannot be destroyed, as it is children object of the desktop taskbar object
@@ -6885,7 +7273,7 @@ function TrayDown(WindowObj, type){
 	}
 	else{
 	//	GtE(WindowObj.WinHand.Id).style.left = ((GtE(WindowObj.TitleBar.Id).offsetLeft)+WinHandWidth)+"px";
-	//	GtE(WindowObj.WinHand.Id).style.top = GtE(WindowObj.TitleBar.Id).offsetTop+"px";		
+	//	GtE(WindowObj.WinHand.Id).style.top = GtE(WindowObj.TitleBar.Id).offsetTop+"px";
 	}
 	Found = WinTrayMoveOldId.indexOf(WindowObj.WinHand.Id);
 	if (Found == -1){
@@ -6902,7 +7290,7 @@ function TrayDown(WindowObj, type){
 
 function TrayUp(WindowObj){
 	GtE(WindowObj.WinHand.Id).innerHTML = "";
-	WindowObj.WinHand.Edit.hide();
+	WindowObj.WinHand.Edit.hide(true);
 	DisplaceTray(WindowObj);
 	var Found = WinTrayMoveOldId.indexOf(WindowObj.WinHand.Id);
 	if (Found > -1){
@@ -7226,7 +7614,7 @@ function SetIcon(data){
 		var wait = window.setTimeout(function(){ChooseIconDesktop(setIconDesktop);setIconDesktop = false;ongoingSetIconDesktop = false;},150);	
 	}		
 	var SubData = data.split("a!a");
-	ChooseIconDesktopTemporary(SubData[0]);	
+	ChooseIconDesktopTemporary(SubData[0]);
 	if (SubData.length == 6){
 		try{
 			DesktopIconMapData[SubData[0]][SubData[1]][SubData[2]] = new DesktopIcon("DesktopIcon"+SubData[0]+"x"+SubData[1]+"x"+SubData[2],IconDesktops[SubData[0]],IconDesktops[SubData[0]].WindowSelf,data);

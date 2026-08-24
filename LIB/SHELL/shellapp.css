@@ -71,7 +71,7 @@
 	cursor: default;
 	display: block;
 	font-family: "Segoe UI", sans-serif;
-	font-weight: 600;
+/*	font-weight: 600;   */
 	text-decoration: none;
 }
 
@@ -288,7 +288,7 @@
 }
 
 .WindowStatusBar{
-	width: calc(100% - 0.4vw);	
+	width: calc(100% - 0.4vw);
 	height: 3.5vh;
 	top: calc(100% - 3.6vh);
 	left: 0.2vh;
@@ -299,7 +299,7 @@
 	user-select: none;
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
-	-ms-user-select: none;	
+	-ms-user-select: none;
 }
 
 .smallWindow{
@@ -396,9 +396,9 @@ break{
 }
 
 .WindowDataNoTitleBarNoStatusBarNoBorders{
-	width: 100%;	 
+	width: 100%;
 	left: 0vw;
-	height: 100%;	
+	height: 100%;
 	top: 0vw;
 }
 
@@ -443,7 +443,9 @@ break{
 }
 
 .WindowMenuItem{
-	margin-left: 0%;
+/*  margin-left: 2.5vh; */
+    padding-left: 3vh;
+    padding-right: 0.5vh;
 	color: inherit;
 	white-space: nowrap;
 	display: flex;
@@ -452,11 +454,11 @@ break{
 	font-size: 2vh;
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
-	-ms-user-select: none;	
+	-ms-user-select: none;
 }
 
 .WindowTaskBarMenuItem{
-	margin-left: 2%;
+	margin-left: 1vw;
 	color: inherit;
 	white-space: nowrap;
 	display: flex;
@@ -465,7 +467,7 @@ break{
 	font-size: 2vh;
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
-	-ms-user-select: none;	
+	-ms-user-select: none;
 }
 
 .WindowTitleButton{
@@ -479,7 +481,7 @@ break{
 }
 
 .NextArrow{
-	left: 90%;
+	left: 80%;
 	color: inherit;
 	position: absolute;
 	text-align: right;
@@ -487,7 +489,7 @@ break{
 	user-select: none;
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
-	-ms-user-select: none;	
+	-ms-user-select: none;
 }
 
 .StatusBarItem{

@@ -2,7 +2,7 @@
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<HEAD>
 		<META CHARSET="UTF-8">
-		<TITLE>MIRAE 1.00</TITLE>
+		<TITLE>MIRAE 1.01</TITLE>
 		<STYLE TYPE="TEXT/CSS">
 			BODY{
 				color: #FFFFFF;
@@ -100,9 +100,8 @@
 			var IECAMPAIGN = false;
 			var FFCAMPAIGN = false;
 			var FFCAMPAIGNOLD = false;
-			//var FFVER = 50;
-			var FFVER = 48;
-			var minFFVER = 20;
+			var FFVER = 50;
+			var minFFVER = 50;
 			var FFAGE = 4;
 			function ONLOAD(){
 				try{
@@ -268,16 +267,16 @@
 			}
 			
 			function setEngCampaign(){
-				document.getElementById("heading").innerHTML = "Mirae - your best choice to do things!";
+				document.getElementById("heading").innerHTML = "Mirae - your best choice to do trading!";
 				document.getElementById("title").innerHTML = "We are sorry, but this application is not available for your web browser. If you want to start this application, you have to use the Mozilla Firefox browser in 50th version or higher. We apologize for the complications.";
 				if (FFCAMPAIGN){
 					document.getElementById("FirefoxHeading").innerHTML = "Outdated Mozilla Firefox?";
-					document.getElementById("FirefoxTitle").innerHTML = "This application needs the latest technologies such as HTML 5 and ECMA Script version 6, which are supported by the latest Mozilla Firefox. And, new Mozilla Firefox is more faster and secure than older versions of Firefox!<br><br>Try these new technologies used in this application and try the latest Mozilla Firefox!";
+					document.getElementById("FirefoxTitle").innerHTML = "This application needs the latest technologies such as HTML 5 and ECMA Script version 6, which are supported by the latest Mozilla Firefox. And, new Mozilla Firefox is more faster and secure than older versions of Firefox!<br><br>Let's try these new technologies used in this application and try the latest Mozilla Firefox!";
 					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadENG' href='https://www.mozilla.org/en-US/firefox/new/' target='_blank' class='"+campaignbutton+"'>Download the latest Mozilla Firefox release!</a>";
 				}
 				else{
 					document.getElementById("FirefoxHeading").innerHTML = "Why Mozilla Firefox?";
-					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox is one of the best browsers which supports the latest technologies such as HTML 5 and ECMAScript in 6th version. Support for these technologies and a large number of users who are using Mozilla Firefox were deciding factors for building this application directly for this browser. <br><br> Try these new technologies used in this application and try Mozilla Firefox!";
+					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox is one of the best browsers which supports the latest technologies such as HTML 5 and ECMAScript in 6th version. Support for these technologies and a large number of users who are using Mozilla Firefox was deciding factor for us to build this application directly for this browser. <br><br> Let's try these new technologies used in this application and try Mozilla Firefox!";
 					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadENG' href='https://www.mozilla.org/en-US/firefox/new/' target='_blank' class='"+campaignbutton+"'>Download the latest Mozilla Firefox release!</a>";
 				}
 				document.getElementById("nofox").innerHTML = "<div id='NoFoxENG' onclick='javascript: OverrideCampaign();' class='campaignbuttonIE'>Continue with current browser ...</div>";
@@ -285,16 +284,16 @@
 				CampaignLang = "ENG";
 			}
 			function setCzCampaign(){
-				document.getElementById("heading").innerHTML = "Mirae - vaše nejlepší volba pro vaši produktivitu!";
+				document.getElementById("heading").innerHTML = "JS Trainer - vaše nejlepší volba pro výuku JavaScriptu!";
 				document.getElementById("title").innerHTML = "Omlouváme se, ale tato aplikace nelze spustit ve vašem prohlížeči. Pro spuštění této aplikace musíte použít prohlížeč Mozilla Firefox v minimální verzi 50. Omlouváme se za komplikace.";
 				if (FFCAMPAIGN){
 					document.getElementById("FirefoxHeading").innerHTML = "Zastaralý Mozilla Firefox?";
-					document.getElementById("FirefoxTitle").innerHTML = "Tato aplikace využívá ke svému chodu nejnovější technologie jako například HTML 5 nebo ECMAScript 6, které jsou podporovány nejnovějším Mozilla Firefox. A také, nový Mozilla Firefox je rychlejší a bezpečnější!<br><br>Vyzkoušejte tyto nové technologie použité v této aplikaci a zkuste nejnovější Mozilla Firefox!";
+					document.getElementById("FirefoxTitle").innerHTML = "Tato aplikace využívá ke svému chodu nejnovějších technologií jako například HTML 5 nebo ECMAScript 6, které jsou podporovány nejnovějším Mozilla Firefox. A také, nový Mozilla Firefox je rychlejší a bezpečnější!<br><br>Pojďte vyzkoušet tyto nové technologie použité v této aplikaci a zkuste nejnovější Mozilla Firefox!";
 					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadCZ' href='https://www.mozilla.org/cs/firefox/new/' target='_blank' class='"+campaignbutton+"'>Stáhnout nejnovější Mozilla Firefox!</a>";
 				}
 				else{
 					document.getElementById("FirefoxHeading").innerHTML = "Proč Mozilla Firefox?";
-					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox patří mezi prohlížeče s nejlepší podporou nejnovějších technologií jako např. HTML 5 nebo ECMAScript 6. Podpora těchto technologií a velký počet uživatelů používající tento prohlížeč byly rozhodujícími důvody pro sestavení této aplikace přímo pro tento prohlížeč. <br><br>Vyzkoušejte tyto nové technologie použité v této aplikaci a zkuste Mozilla Firefox!";
+					document.getElementById("FirefoxTitle").innerHTML = "Mozilla Firefox patří mezi prohlížeče s nejlepší podporou nejnovějších technologií jako např. HTML 5 nebo ECMAScript 6. Podpora těchto technologií a velký počet uživatelů používající Mozilla Firefox byl rozhodující pro sestavení této aplikace přímo pro tento prohlížeč. <br><br>Pojďte vyzkoušet tyto nové technologie použité v této aplikaci a zkuste Mozilla Firefox!";
 					document.getElementById("FirefoxDownload").innerHTML = "<a id='FirefoxDownloadCZ' href='https://www.mozilla.org/cs/firefox/new/' target='_blank' class='"+campaignbutton+"'>Stáhnout nejnovější Mozilla Firefox!</a>";
 				}
 				document.getElementById("nofox").innerHTML = "<div id='NoFoxCZ' onclick='javascript: OverrideCampaign();' class='campaignbuttonIE'>Pokračovat se současným prohlížečem ...</div>";
@@ -350,7 +349,7 @@
                             "LIB/MEDIA.js", // GUISHELL frmaework for GUI and window composition management
                             "LIB/SHELL.js", // GUISHELL frmaework for GUI and window composition management
                             "LIB/kernel.js", // GUISHELL frmaework for GUI and window composition management
-                            "LIB/GUI.js", // GUISHELL frmaework for GUI and window composition management
+                            "LIB/GUISHELL.js", // GUISHELL frmaework for GUI and window composition management
                             "LIB/GFRAME.js", // GUISHELL frmaework for GUI and window composition management
                             "LIB/LANWORK.js", //initialization of translation feature
                             "LIB/shellwork.js", //GUI definition of your application
@@ -382,7 +381,7 @@
 				function StartLoadApp(){
 					log += "Libraries are loaded;\\_> Starting application ...";
                     if (!_NoOutputDuringStartup)
-                        GtE("load_log").innerHTML += "<br><br>Libraries were loaded<br><br><br>&nbsp&nbsp>> Starting application ...";
+                        GtE("load_log").innerHTML += "<br><br>Libraries was loaded<br><br><br>&nbsp&nbsp>> Starting application ...";
 					var waittostart = window.setTimeout(function(){
 						GtEs("loader").display = "none";
 						GtEs("main_grid").display = "block";

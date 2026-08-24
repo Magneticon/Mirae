@@ -127,7 +127,8 @@
 
 .statusbar{
 	background-color: #ece9d8;
-	color: #FFCC00;
+/*	color: #FFCC00;  */
+	color: #000000;
 	justify-content: left; 
 	align-items: center;
 	display: flex;
@@ -286,6 +287,8 @@
 
 /* //////////////////////////////////////////////////////// */
 
+/*
+
 @font-face {
 	font-family:"Pixelated MS Sans Serif";
 	src:url(ms_sans_serif.woff) format("woff");
@@ -305,7 +308,7 @@
 	src:url(PerfectDOSVGA437Win.woff2) format("woff2"),url(PerfectDOSVGA437Win.woff) format("woff");
 	font-weight:400;
 	font-style:normal
-}
+}  */
 body {
 	font-family:Arial;
 	font-size:12px;
@@ -383,7 +386,7 @@ summary:focus {
 	width:16px;
 	background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0v16h1V1h14V0z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1v14h1V2h12V1H2z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H0v-1h15V0h1v17z' fill='%23000'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1h-1v14H1v1h14V1z' fill='gray'/%3E%3Cpath fill='silver' d='M2 2h12v13H2z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6v7h1v-1h1V9h1V8h1V7H9V6H8V5H7V4z' fill='%23000'/%3E%3C/svg%3E")
 }
-button {
+/*button {
 	border:none;
 	background:#ece9d8;
 	box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
@@ -398,7 +401,7 @@ button:not(:disabled).active,button:not(:disabled):active {
 button.focused,button:focus {
 	outline:1px dotted #000;
 	outline-offset:-4px
-}
+} */
 label {
 	display:inline-flex;
 	align-items:center
@@ -925,7 +928,7 @@ menu[role=tablist].justified button {
 .status-bar-field:last-of-type {
 	border-right:none
 }
-button {
+button, .button {
 	font-family:"Pixelated MS Sans Serif",Arial;
 	-webkit-font-smoothing:antialiased;
 	font-size:11px;
@@ -933,16 +936,21 @@ button {
 	border:1px solid #003c74;
 	background:linear-gradient(180deg,#fff,#ecebe5 86%,#d8d0c4);
 	box-shadow:none;
-	border-radius:3px
+	border-radius:3px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 button:not(:disabled).active,button:not(:disabled):active {
 	box-shadow:none;
 	background:linear-gradient(180deg,#cdcac3,#e3e3db 8%,#e5e5de 94%,#f2f2f1)
 }
-button:not(:disabled):hover {
-	box-shadow:inset -1px 1px #fff0cf,inset 1px 2px #fdd889,inset -2px 2px #fbc761,inset 2px -2px #e5a01a
+button:not(:disabled):hover, .button:hover {
+	box-shadow:inset -1px 1px #fff0cf,inset 1px 2px #fdd889,inset -2px 2px #fbc761,inset 2px -2px #e5a01a;
+    cursor: pointer;
 }
-button.focused,button:focus {
+button.focused,button:focus ,.button:focus{
 	box-shadow:inset -1px 1px #cee7ff,inset 1px 2px #98b8ea,inset -2px 2px #bcd4f6,inset 1px -1px #89ade4,inset 2px -2px #89ade4
 }
 button::-moz-focus-inner {

@@ -204,3 +204,7 @@ class ProgInstance extends SysWin{
         SysIn.Tray.ShowTray();
     }
 }
+
+function WinGet(WindowId){
+    return ElWin(WindowId, "get")[0][0];
+}
